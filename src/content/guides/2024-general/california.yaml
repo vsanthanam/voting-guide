@@ -1,0 +1,179 @@
+name: The State of California
+sections:
+  - name: California State Assembly
+    contests:
+      - office: California State Assembly, District 14
+        area: Oakland Hills
+        kind: single
+        candidates:
+          - { name: Buffy Wicks, party: D, incumbent: true }
+          - { name: Margot Smith, party: D }
+        picks:
+          - { name: Buffy Wicks, party: D }
+      - office: California State Assembly, District 17
+        area: San Francisco
+        kind: single
+        candidates:
+          - { name: Matt Haney, party: D, incumbent: true }
+          - { name: Manuel Noris-Barrera, party: R }
+        picks:
+          - { name: Matt Haney, party: D }
+      - office: California State Assembly, District 19
+        area: San Francisco
+        kind: single
+        candidates:
+          - { name: Catherine Stefani, party: D }
+          - { name: David Lee, party: D }
+        picks:
+          - any_of:
+              - { name: Catherine Stefani, party: D }
+              - { name: David Lee, party: D }
+      - office: California State Assembly, District 23
+        area: Palo Alto
+        kind: single
+        candidates:
+          - { name: Marc Berman, party: D, incumbent: true }
+          - { name: Lydia Kou, party: D }
+        picks:
+          - { name: Marc Berman, party: D }
+
+  - name: California State Senate
+    contests:
+      - office: California State Senate, District 7
+        area: Oakland Hills
+        kind: single
+        candidates:
+          - { name: Jesse Arreguín, party: D }
+          - { name: Jovanka Beckles, party: D }
+        picks:
+          - { name: Jesse Arreguín, party: D }
+      - office: California State Senate, District 11
+        area: San Francisco
+        kind: single
+        candidates:
+          - { name: Scott Wiener, party: D, incumbent: true }
+          - { name: Yvette Corkrean, party: R }
+        picks:
+          - { name: Scott Wiener, party: D }
+      - office: California State Senate, District 13
+        area: Palo Alto
+        kind: single
+        candidates:
+          - { name: Josh Becker, party: D, incumbent: true }
+          - { name: Alexander Glew, party: R }
+        picks:
+          - { name: Josh Becker, party: D }
+
+  - name: California Ballot Propositions
+    contests:
+      - measure: Proposition 2
+        title: Public school facilities bond
+        kind: measure
+        position: yes
+        why: >
+          This is a pretty straightforward bond for public school infrastructure in the state. California has a
+          rather precarious funding structure for public schools because of 1978's Proposition 13 and the Gann
+          Limit, which means that annual resource allocations are extremely volatile and depend primarily on the
+          recency of real estate sales and their updated value appraisals, making bonds like this a necessary
+          regular funding mechanism to ensure predictable funding, especially in years when the number of
+          transactions are down and property values are not reassessed for tax purposes.
+      - measure: Proposition 3
+        title: Right to marry
+        kind: measure
+        position: yes
+        why: >
+          This is essentially the opposite of 2008's Proposition 8, and enshrines the right to marry regardless of
+          race, gender, sexual orientation, etc.
+      - measure: Proposition 4
+        title: Climate and wildfire bond
+        kind: measure
+        position: yes
+        why: >
+          As wildfires become a nearly annual occurrence in the state, this bond will provide critical funding for
+          necessary infrastructure to keep our communities safe from this growing threat.
+      - measure: Proposition 5
+        title: 55% threshold for local housing bonds
+        kind: measure
+        position: yes
+        why: >
+          State laws ensure that random asshats can jam up processes used by cities and counties to acquire
+          affordable housing bonds. This law enables localities to set up these bonds as long as they have a 55%
+          majority vote by the local electorate. Local housing bonds are good, and are generally more precise
+          instruments than their state-wide alternatives.
+      - measure: Proposition 6
+        title: End involuntary servitude in prisons
+        kind: measure
+        position: yes
+        why: Abolishes slavery. Slavery is bad.
+      - measure: Proposition 32
+        title: $18 minimum wage
+        kind: measure
+        position: none
+        why: >
+          This law does two things: it sets up a ramped state-wide minimum wage to $18 by 2026, and enables
+          further increases based on inflation and cost of labor. Given that we're just coming off the backs of
+          an inflationary macroeconomic environment, I won't begrudge anyone for voting no on this one, and I
+          think that in general minimum wage laws are a good but limited policy lever for strengthening overall
+          wages. Sectoral bargaining is better. That said, I personally will be voting "yes" on this one.
+      - measure: Proposition 33
+        title: Repeal Costa-Hawkins
+        kind: measure
+        position: no
+        why: >
+          Costa-Hawkins is a loose, state-wide rent-control measure that caps increases at fixed percentages or
+          inflation, and bans localities from instituting their own rent-control regimes unless they were already
+          established before Costa-Hawkins. Prop 33 eliminates Costa-Hawkins, and enables local communities to
+          enable their own rent control laws. Look, I'd love to get rid of Costa-Hawkins. It sucks. But the
+          mechanism by which this law does this is pretty insane, and sets up literally zero limits on what
+          localities can do in place of Costa-Hawkins. This comes at a time when cities all over the state are
+          fighting back against the state government for enforcing much needed housing regulations. Prop 33
+          enables these notoriously anti-housing cities to effectively avoid much of the recent pro-housing
+          legislation like AB2011 (CEQA reform), AB2097 (eliminating parking minimums next to transit centers),
+          AB1551 (density bonus), and AB2234 (project timeline enforcement) by designing rent control schemes
+          that make compliance with these laws impossible. Some cities have gone as far as to say this out loud.
+          Most California cities have proven themselves to be untrustworthy when it comes to self-regulating
+          their own housing production, and have fought tooth and nail to ensure that they can avoid state
+          housing regulation. We need to get rid of Costa-Hawkins eventually, but we cannot do it at the expense
+          of badly needed housing production in the state with the worst housing shortage in America. Vote No.
+      - measure: Proposition 34
+        title: Restrict spending of prescription drug revenue
+        kind: measure
+        position: yes
+        why: >
+          NGOs in California have often received very little oversight over the public money that they have been
+          deputized to spend. This law is a step in the right direction and dictates that 98% of the public
+          health money they receive actually needs to be spent on the sanctioned care and not other
+          infrastructure. The ballot measure is opposed only by one of the most notoriously negligent NGOs in
+          the state, the AIDS Healthcare Foundation, which for some reason has dipped its toes into housing
+          advocacy in the last decade. In general, anytime you see something endorsed by the AHF, you can pretty
+          safely assume that you should oppose it.
+      - measure: Proposition 35
+        title: Permanent managed care tax for Medi-Cal
+        kind: measure
+        position: yes
+        why: |
+          This law establishes a permanent tax on managed care organizations (MCOs) to support Medi-Cal,
+          California's Medicaid program that provides health coverage for low-income individuals. Major MCOs like
+          Kaiser Permanente, Anthem Blue Cross, and Blue Shield deliver healthcare services through Medi-Cal.
+
+          Revenue from the tax will be used to cover Medi-Cal enrollment and administrative expenses immediately.
+          In 2025 and 2026, the tax is expected to generate $2.7 billion for Medi-Cal and health workforce
+          initiatives, with an additional $2 billion directed to the general fund to help offset Medi-Cal costs.
+          Starting in 2027, the tax will also help subsidize drug prices, and replaces the existing, annual, highly
+          political process of funding Medi-Cal. It holds the Governor's mansion to the terms of the original MCO
+          tax.
+      - measure: Proposition 36
+        title: Felony charges for certain drug and theft crimes
+        kind: measure
+        position: no
+        why: >
+          This law essentially enables larger jail sentences for certain kinds of drug-related offenses by making
+          them felonies instead of misdemeanors. While I am sympathetic to the desire to enforce basic order in
+          public spaces (I live in San Francisco after all), we know from study after study that sentence length
+          deterrence is not an effective mechanism to reduce crime. The basic theory is that when someone has
+          decided to break the law, the difference between a 3 year and 5 year sentence has effectively zero
+          effect on their decision. Each additional year of jail time establishes less and less deterrence, but
+          has a linear impact on taxpayer spending, and an exponential negative impact on rehabilitation and
+          recidivism. It's just not a good system. To effectively combat petty street crime (most of which
+          actually isn't even covered by this law), cities need to actually invest in crime prevention,
+          detectives, and performance management of their local police departments. This law does none of those.

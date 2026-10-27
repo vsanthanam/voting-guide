@@ -1,0 +1,200 @@
+name: City of San Francisco
+sections:
+  - name: Executive Offices
+    contests:
+      - office: Assessor-Recorder
+        kind: single
+        note: Uncontested.
+        candidates:
+          - { name: Joaquín Torres, incumbent: true }
+      - office: Public Defender
+        kind: single
+        note: Uncontested.
+        candidates:
+          - { name: Mano Raju, incumbent: true }
+
+  - name: San Francisco Board of Supervisors
+    contests:
+      - office: San Francisco Board of Supervisors, District 2
+        kind: ranked
+        candidates:
+          - { name: Stephen Sherrill, incumbent: true, note: appointed Dec 2024, won the June 2026 special election }
+          - { name: Nicholas Berg }
+          - { name: Guy McCoy, note: manager, retired military }
+          - { name: Monthanus Ratanapakdee, note: community advocate }
+      - office: San Francisco Board of Supervisors, District 4
+        kind: ranked
+        candidates:
+          - { name: Alan Wong, incumbent: true, note: appointed Dec 2025, won the June 2026 special election }
+          - { name: Albert Chow, note: hardware store owner }
+          - { name: Jeremy Julian Greco, note: campus coordinator }
+      - office: San Francisco Board of Supervisors, District 6
+        kind: ranked
+        candidates:
+          - { name: Matt Dorsey, incumbent: true }
+          - { name: Alex Behrend, note: organizer }
+      - office: San Francisco Board of Supervisors, District 8
+        kind: ranked
+        note: Open seat. Rafael Mandelman is term-limited. Manny Yekutiel dropped out after sexual assault allegations but remains on the ballot.
+        candidates:
+          - { name: Gary McCoy, note: healthcare policy advocate }
+          - { name: Michael T. Nguyen, note: attorney, drag activist }
+          - { name: Darshini Patel, note: community advocate }
+          - { name: Emanuel "Manny" Yekutiel, note: withdrew }
+      - office: San Francisco Board of Supervisors, District 10
+        kind: ranked
+        note: Open seat. Shamann Walton is term-limited. Ten candidates.
+        candidates:
+          - { name: Pearci "PJ" Bastiany III, note: MPA graduate student }
+          - { name: Dion-Jay "DJ" Brookter, note: former CEO, Young Community Developers }
+          - { name: Deandra Bryant, note: community advocate }
+          - { name: Theo Ellington, note: executive director, Bayview Opera House }
+          - { name: J.R. Eppler, note: small business attorney, Board of Appeals commissioner }
+          - { name: Ellsworth "Ell" M. Jennison, Jr., note: carpenter }
+          - { name: Mike Trouble Lin, note: small business consultant }
+          - { name: Jamo Muhammad }
+          - { name: Jessica Pessecow, note: legal representative, nurse }
+          - { name: Shawn M. Richard, note: nonprofit CEO }
+        verify: true
+
+  - name: San Francisco Board of Education
+    contests:
+      - office: Members of the Board
+        kind: multi
+        seats: 3
+        candidates:
+          - { name: Autumn Brown Garibay, note: PTA vice president }
+          - { name: Virginia Cheung, note: nonprofit executive }
+          - { name: Alida Fisher, incumbent: true }
+          - { name: Ryan Hazelton, note: children's nonprofit director }
+          - { name: Phil Kim, incumbent: true, note: board president }
+          - { name: Laurance Lee, note: general contractor }
+          - { name: Reina Tello, note: community organizer }
+          - { name: Tim Tung, note: research analyst }
+
+  - name: Trustees of the City College of San Francisco
+    contests:
+      - office: College Trustees
+        kind: multi
+        seats: 3
+        note: Full four-year terms. No incumbents are running.
+        candidates:
+          - { name: Elijah Ball, note: college campus planner }
+          - { name: Rome Moses Jones, note: nonprofit executive }
+          - { name: Monroe Lace, note: public school teacher }
+          - { name: Leah LaCroix, note: administrative analyst }
+          - { name: Jeremy Lee, note: asset manager }
+          - { name: Bunny McFadden, note: educator, journalist }
+          - { name: Erwin Tam, note: municipal financial advisor }
+          - { name: Lisa Palagi Wynn II, note: equity researcher }
+      - office: College Trustee, remainder of term ending January 2029
+        kind: single
+        note: Uncontested. Appointed to Alan Wong's vacated seat.
+        candidates:
+          - { name: Ruth Ferguson, incumbent: true }
+
+  - name: Bay Area Rapid Transit Board of Directors
+    contests:
+      - office: BART Director, District 8
+        kind: single
+        note: >
+          The only BART seat on the San Francisco ballot this year. District 8 covers North Beach, Chinatown,
+          the Marina, the Richmond, the Sunset, and Ingleside. Janice Li is not running. Uncontested.
+        candidates:
+          - { name: Sara Barz, note: transportation planner }
+
+  - name: San Francisco Ballot Measures
+    intro: Every local measure this year needs a simple majority to pass.
+    contests:
+      - measure: Proposition A
+        title: Charter changes to City departments and commissions
+        kind: measure
+        summary: Eliminates or reorganizes certain commissions, moves many commissions from the Charter into the Municipal Code, expands the City Administrator's real estate role, and changes how legal settlements are approved.
+        threshold: "50%+1"
+        placed_by: Board of Supervisors, 9 to 2
+        supporters: Mayor Daniel Lurie, as part of the "Clean Up City Hall" package with D, E, and F; GrowSF
+        opponents: Coalition on Homelessness
+      - measure: Proposition B
+        title: Municipal finance corporation and public bank
+        kind: measure
+        summary: Authorizes the City to create a city-owned non-deposit lender that could later convert into a public bank after profitable operation and regulatory approval.
+        threshold: "50%+1"
+        placed_by: Board of Supervisors, 9 to 2
+        supporters: SF Public Bank Coalition, San Francisco Foundation, SF Labor Council
+        opponents: GrowSF and individual opponents
+      - measure: Proposition C
+        title: Housing Trust Fund contributions
+        kind: measure
+        summary: Gradually raises the City's annual Housing Trust Fund contribution to $125 million, expands eligible uses to include social housing and co-ops, raises the down payment loan income limit to 200% of area median income, and extends the fund from 2043 to 2058.
+        threshold: "50%+1"
+        placed_by: Board of Supervisors, 11 to 0
+        supporters: Non-Profit Housing Association of Northern California, San Franciscans for Social Housing, SF Democratic Party, GrowSF
+        opponents: SF Republican Party
+      - measure: Proposition D
+        title: Changes to the ballot measure process
+        kind: measure
+        summary: Raises the signature requirement for citizen initiatives from 2% to 8% of registered voters, raises the threshold for calling special elections to 10%, allows initiatives to be withdrawn before an election, and removes the ability of the Mayor or four Supervisors to place measures on the ballot.
+        threshold: "50%+1"
+        placed_by: Signature petition, sponsored by Mayor Lurie
+        supporters: Mayor Daniel Lurie, SF Democratic Party, Teamsters Local 665, Gov. Gavin Newsom, GrowSF
+        opponents: SF Labor Council, Senior and Disability Action, United Educators of SF, SF Tenants Union, Indivisible SF
+      - measure: Proposition E
+        title: City Administrator authority and contracting
+        kind: measure
+        summary: Centralizes purchasing and contracting authority under the City Administrator, raises the contract values requiring Board approval from $10 million to $25 million, and extends the City Administrator's term from 5 to 10 years.
+        threshold: "50%+1"
+        placed_by: Signature petition, sponsored by Mayor Lurie
+        supporters: Mayor Daniel Lurie, SF Democratic Party, Firefighters Local 798, SF Building Trades, GrowSF
+        opponents: SF Labor Council and allied groups
+      - measure: Proposition F
+        title: Executive branch management
+        kind: measure
+        summary: Expands the Mayor's authority to transfer responsibilities between departments, hire deputy mayors, hire and fire most department heads including the Police Chief, and lets appointing authorities remove most commissioners without cause.
+        threshold: "50%+1"
+        placed_by: Signature petition, sponsored by Mayor Lurie
+        supporters: Mayor Daniel Lurie, SF Democratic Party, SPUR, SF Chamber of Commerce, Firefighters Local 798, SEIU 87, GrowSF
+        opponents: Small Business Forward, DSA SF, SF Labor Council
+      - measure: Proposition G
+        title: Private vehicles on the Upper Great Highway
+        kind: measure
+        summary: Closes Sunset Dunes Park to recreation on weekdays and reopens the Upper Great Highway to private vehicles Monday 4 a.m. through Friday 6 p.m., reversing part of 2024's Prop K.
+        threshold: "50%+1"
+        placed_by: Signature petition
+        supporters: Chinese American Democratic Club, SF Taxpayers Association, Richmond District Democratic Club, Supervisor Alan Wong
+        opponents: Sierra Club, SPUR, Surfrider SF, Outer Sunset Neighbors, Scott Wiener, GrowSF
+      - measure: Proposition H
+        title: Parcel tax for Muni operations
+        kind: measure
+        summary: Creates a 15-year parcel tax based on property type and square footage, from $129 per single-family parcel up to $400,000, with senior exemptions, raising about $177 million a year for Muni service.
+        threshold: "50%+1"
+        placed_by: Signature petition
+        supporters: SF Democratic Party, SF Labor Council, SF Chamber of Commerce, SF Tenants Union, Seamless Bay Area, GrowSF
+        opponents: SF Republican Party, Business League
+      - measure: Proposition I
+        title: Transfer tax dedication for affordable housing
+        kind: measure
+        summary: Permanently dedicates half of transfer tax revenue from property sales over $10 million to a new House SF Fund for affordable and social housing. Prevails over Prop J if both pass and conflict.
+        threshold: "50%+1"
+        placed_by: Signature petition, backed by DSA SF and Dean Preston
+        supporters: Affordable Housing Alliance, SF Tenants Union, SEIU 1021, Small Business Forward, DSA SF
+        opponents: SF Taxpayers Association, SF Building and Construction Trades Council, GrowSF
+      - measure: Proposition J
+        title: End the foreclosure exemption for the transfer tax
+        kind: measure
+        summary: Starting in 2027, ends the transfer tax exemption for commercial, industrial, and large residential properties transferred to a lender in or to avoid foreclosure, for an estimated $100 million to $150 million a year.
+        threshold: "50%+1"
+        placed_by: Board of Supervisors, 10 to 0
+        supporters: Mayor Daniel Lurie, SF Democratic Party, SEIU 1021, SEIU 2015, GrowSF
+        opponents: SF Taxpayers Association
+
+  - name: Regional Measures
+    intro: Appears on the ballot in San Francisco, Alameda, Contra Costa, San Mateo, and Santa Clara counties and is counted across all five.
+    contests:
+      - measure: Regional Measure RTM
+        title: Regional transit sales tax
+        kind: measure
+        summary: Enacts a 14-year sales tax of 1% in San Francisco and 0.5% in Alameda, Contra Costa, San Mateo, and Santa Clara counties, raising about $980 million a year, mainly to prevent service cuts at BART, Muni, Caltrain, AC Transit, VTA, and SamTrans.
+        threshold: "50%+1 across all five counties combined"
+        placed_by: Multi-county signature petition under SB 63
+        supporters: Connect Bay Area Transit coalition, Scott Wiener, Jesse Arreguín, SPUR, Seamless Bay Area, GrowSF
+        opponents: Committee for Affordable Bay Area Transit, Contra Costa Taxpayers Association

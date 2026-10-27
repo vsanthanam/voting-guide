@@ -1,0 +1,360 @@
+---
+import type { Contest } from '../lib/guide';
+import { avoided, contestId, contestTitle, isMeasure, isOpen, marks, md, ordinal, rankColumns, retention, rows, status } from '../lib/guide';
+import Oval from './Oval.astro';
+import Candidate from './Candidate.astro';
+
+interface Props {
+  contest: Contest;
+  jurisdiction?: string;
+}
+const { contest: c, jurisdiction } = Astro.props;
+const id = contestId(c, jurisdiction);
+const title = contestTitle(c);
+const open = isOpen(c);
+const measure = isMeasure(c);
+const people = rows(c);
+const mark = marks(c);
+const struck = avoided(c);
+const cols = c.kind === 'ranked' ? rankColumns(c) : 0;
+// A ranked contest with one row and one column is just a list.
+const grid = c.kind === 'ranked' && (people.length > 1 || cols > 1);
+const list = c.kind === 'single' || c.kind === 'multi' || (c.kind === 'ranked' && !grid);
+const pos = c.position;
+const pill = status(c);
+const hasContext = c.summary || c.placed_by || c.supporters || c.opponents;
+const retain = retention(c);
+const picks = c.picks ?? [];
+const search = [title, c.title, c.area, ...people.map((p) => p.name)].filter(Boolean).join(' ').toLowerCase();
+---
+
+<article class:list={['contest', { open }]} id={id} data-search={search}>
+  <header class="head">
+    <h4><a href={`#${id}`}>{title}</a></h4>
+    {c.title && <p class="subtitle">{c.title}</p>}
+    <p class="kicker">
+      {c.area && <span>{c.area}</span>}
+      {c.kind === 'ranked' && <span>Ranked choice</span>}
+      {c.kind === 'multi' && c.seats && <span>Vote for up to {c.seats}</span>}
+      {c.kind === 'retention' && <span>Yes or no on each justice</span>}
+      {c.threshold && <span>Needs {c.threshold}</span>}
+      {c.verify && <span class="verify">Candidate list not yet verified</span>}
+    </p>
+  </header>
+
+  {
+    measure && (
+      <div class="ballot measure-ballot">
+        {c.kind === 'recall' && <p class="question">Shall this official be recalled?</p>}
+        <span class="choice">
+          <Oval state={pos === 'yes' ? 'filled' : 'empty'} label={pos === 'yes' ? 'Yes, picked' : 'Yes'} />
+          Yes
+        </span>
+        <span class="choice">
+          <Oval state={pos === 'no' ? 'filled' : 'empty'} label={pos === 'no' ? 'No, picked' : 'No'} />
+          No
+        </span>
+        {pill && <span class:list={['label', pill.kind]}>{pill.text}</span>}
+      </div>
+    )
+  }
+
+  {
+    c.kind === 'retention' && (
+      <div class="ballot">
+        <table class="grid">
+          <thead>
+            <tr>
+              <th scope="col" class="name-col"></th>
+              <th scope="col">Yes</th>
+              <th scope="col">No</th>
+            </tr>
+          </thead>
+          <tbody>
+            {people.map((p) => (
+              <tr>
+                <th scope="row" class="name-col">
+                  <Candidate person={p} />
+                </th>
+                <td>
+                  <Oval state={retain.get(p.name) === 'yes' ? 'filled' : 'empty'} label={retain.get(p.name) === 'yes' ? 'Yes, picked' : 'Yes'} />
+                </td>
+                <td>
+                  <Oval state={retain.get(p.name) === 'no' ? 'filled' : 'empty'} label={retain.get(p.name) === 'no' ? 'No, picked' : 'No'} />
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        {pill && <span class:list={['label', pill.kind]}>{pill.text}</span>}
+      </div>
+    )
+  }
+
+  {
+    grid && (
+      <div class="ballot">
+        <table class="grid">
+          <thead>
+            <tr>
+              <th scope="col" class="name-col"></th>
+              {Array.from({ length: cols }, (_, i) => (
+                <th scope="col">{ordinal(i + 1)}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {people.map((p) => {
+              const my = mark.get(p.name) ?? [];
+              const isStruck = struck.has(p.name);
+              return (
+                <tr class:list={{ struck: isStruck }}>
+                  <th scope="row" class="name-col">
+                    <Candidate person={p} struck={isStruck} />
+                    {isStruck && <span class="do-not">Do not rank</span>}
+                  </th>
+                  {Array.from({ length: cols }, (_, i) => {
+                    const m = my.find((x) => x.index === i);
+                    const state = isStruck ? 'struck' : m ? (m.shared ? 'shared' : 'filled') : 'empty';
+                    const label = `${ordinal(i + 1)} choice: ${p.name}` + (m ? (m.shared ? ', either' : ', picked') : '');
+                    return (
+                      <td>
+                        <Oval state={state} label={label} />
+                      </td>
+                    );
+                  })}
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+        {picks.some((s) => 'any_of' in s) && (
+          <p class="legend">
+            <Oval state="shared" label="mixed" /> Either of these is fine in that spot.
+          </p>
+        )}
+        {pill && <span class:list={['label', pill.kind]}>{pill.text}</span>}
+      </div>
+    )
+  }
+
+  {
+    list && (
+      <div class="ballot">
+        <ul class="list">
+          {people.map((p) => {
+            const my = mark.get(p.name) ?? [];
+            const isStruck = struck.has(p.name);
+            const state = isStruck ? 'struck' : my.length ? (my[0].shared ? 'shared' : 'filled') : 'empty';
+            return (
+              <li class:list={{ struck: isStruck, picked: my.length > 0 }}>
+                <Oval state={state} label={`${p.name}${my.length ? (my[0].shared ? ', either' : ', picked') : ''}`} />
+                <Candidate person={p} struck={isStruck} />
+                {my[0]?.shared && <span class="either">or</span>}
+              </li>
+            );
+          })}
+        </ul>
+        {pill && <span class:list={['label', pill.kind]}>{pill.text}</span>}
+      </div>
+    )
+  }
+
+  {
+    hasContext && (
+      <dl class="context">
+        {c.summary && (
+          <>
+            <dt>A yes vote</dt>
+            <dd>{c.summary}</dd>
+          </>
+        )}
+        {c.placed_by && (
+          <>
+            <dt>Placed by</dt>
+            <dd>{c.placed_by}</dd>
+          </>
+        )}
+        {c.supporters && (
+          <>
+            <dt>For</dt>
+            <dd>{c.supporters}</dd>
+          </>
+        )}
+        {c.opponents && (
+          <>
+            <dt>Against</dt>
+            <dd>{c.opponents}</dd>
+          </>
+        )}
+      </dl>
+    )
+  }
+
+  {c.note && <div class="note prose" set:html={md(c.note)} />}
+  {c.why && <div class="why prose" set:html={md(c.why)} />}
+</article>
+
+<style>
+  .contest {
+    padding: 16px 26px 20px;
+    border-top: 1px solid var(--hair);
+    scroll-margin-top: 84px;
+  }
+  .card-head + .contest,
+  .card-intro + .contest {
+    border-top: 0;
+  }
+  .head h4 {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.015em;
+  }
+  .head h4 a {
+    color: inherit;
+  }
+  .head h4 a:hover {
+    text-decoration: none;
+    color: var(--blue-ink);
+  }
+  .subtitle {
+    color: var(--text-2);
+    font-size: 15px;
+  }
+  .kicker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2px 14px;
+    font-size: 13px;
+    color: var(--text-3);
+    margin-top: 2px;
+  }
+  .kicker:empty {
+    display: none;
+  }
+  .verify {
+    color: var(--orange);
+  }
+
+  .ballot {
+    margin-top: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 22px;
+  }
+  .question {
+    flex-basis: 100%;
+    font-size: 15px;
+    color: var(--text-2);
+  }
+  .choice {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    font-weight: 500;
+  }
+
+  .list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-basis: 100%;
+  }
+  .list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 11px;
+    padding: 4px 0;
+  }
+  .list li > :global(.mark) {
+    position: relative;
+    top: 1px;
+  }
+  .either {
+    font-size: 13px;
+    color: var(--text-3);
+    align-self: center;
+  }
+  .list li.picked + li.picked .either,
+  .list li.picked:last-child .either {
+    display: none;
+  }
+
+  .grid {
+    border-collapse: collapse;
+    flex-basis: 100%;
+    max-width: 640px;
+  }
+  .grid thead th {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-3);
+    text-align: center;
+    padding: 0 8px 8px;
+  }
+  .grid th.name-col {
+    text-align: left;
+    padding-left: 0;
+    width: 100%;
+  }
+  .grid td {
+    text-align: center;
+    padding: 6px 8px;
+    border-top: 1px solid var(--hair);
+  }
+  .grid tbody th.name-col {
+    font-weight: normal;
+    padding: 6px 10px 6px 0;
+    border-top: 1px solid var(--hair);
+  }
+  .do-not {
+    display: block;
+    font-size: 13px;
+    color: var(--red);
+  }
+  .legend {
+    font-size: 13px;
+    color: var(--text-3);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .legend > :global(.mark) {
+    width: 18px;
+    height: 18px;
+  }
+
+  .context {
+    margin: 14px 0 0;
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 4px 14px;
+    font-size: 15px;
+    max-width: var(--measure);
+  }
+  .context dt {
+    color: var(--text-3);
+  }
+  .context dd {
+    margin: 0;
+  }
+  @media (max-width: 480px) {
+    .context {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .context dd {
+      margin-bottom: 6px;
+    }
+  }
+
+  .note {
+    margin-top: 12px;
+    font-size: 15px;
+    color: var(--text-2);
+  }
+  .why {
+    margin-top: 12px;
+  }
+</style>

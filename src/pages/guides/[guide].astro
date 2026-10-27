@@ -1,0 +1,127 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Contest from '../../components/Contest.astro';
+import Toc from '../../components/Toc.astro';
+import { formatDate, loadGuide, md, slug, stats } from '../../lib/guide';
+
+export async function getStaticPaths() {
+  const guides = await getCollection('guides');
+  return guides.map((g) => ({ params: { guide: g.id } }));
+}
+
+const lg = await loadGuide(Astro.params.guide);
+if (!lg) return Astro.redirect(import.meta.env.BASE_URL);
+const { guide, jurisdictions } = lg;
+const s = stats(lg);
+const draft = guide.data.status === 'draft';
+---
+
+<Base title={guide.data.election} description={`${guide.data.election}: picks and reasoning for every race and measure.`}>
+  <header class="masthead">
+    <div class="container">
+      <h1>{guide.data.election}</h1>
+      <p class="when">{formatDate(guide.data.date)}</p>
+      <p class="lede">Checked circles are my picks. Everything else is what's printed on the ballot.</p>
+      {draft && <p><span class="label draft">Still being written. {s.open} of {s.contests} items don't have a recommendation yet.</span></p>}
+      {guide.data.intro && <div class="intro prose" set:html={md(guide.data.intro)} />}
+    </div>
+  </header>
+
+  <div class="container layout">
+    <Toc jurisdictions={jurisdictions} />
+    <main>
+      <Toc jurisdictions={jurisdictions} variant="dock" />
+      {
+        jurisdictions.map((j) => (
+          <section class="jurisdiction" id={slug(j.data.name)}>
+            <h2>{j.data.name}</h2>
+            {j.data.intro && <div class="jurisdiction-intro prose" set:html={md(j.data.intro)} />}
+            {j.data.sections.map((sec) => (
+              <section class="card group" id={slug(j.data.name + ' ' + sec.name)}>
+                <h3 class="card-head">
+                  <a href={`#${slug(j.data.name + ' ' + sec.name)}`}>{sec.name}</a>
+                </h3>
+                {sec.intro && <div class="card-intro" set:html={md(sec.intro)} />}
+                {sec.contests.map((c) => (
+                  <Contest contest={c} jurisdiction={j.data.name} />
+                ))}
+              </section>
+            ))}
+          </section>
+        ))
+      }
+      <p class="no-results hidden" id="no-results">Nothing on this ballot matches.</p>
+    </main>
+  </div>
+</Base>
+
+<script>
+  // Sub-navigation highlights the section in view.
+  const items = Array.from(document.querySelectorAll<HTMLAnchorElement>('#subnav .item'));
+  const groups = Array.from(document.querySelectorAll<HTMLElement>('main .group'));
+  const byId = new Map(items.map((a) => [a.dataset.target!, a]));
+  let current: HTMLAnchorElement | undefined;
+  const visible = new Set<Element>();
+  const update = () => {
+    const first = groups.find((g) => visible.has(g));
+    const next = first ? byId.get(first.id) : undefined;
+    if (next === current) return;
+    current?.classList.remove('current');
+    next?.classList.add('current');
+    current = next;
+  };
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const e of entries) e.isIntersecting ? visible.add(e.target) : visible.delete(e.target);
+      update();
+    },
+    { rootMargin: '-80px 0px -55% 0px' },
+  );
+  groups.forEach((g) => io.observe(g));
+
+  // Search filters contests; empty sections and jurisdictions hide with them.
+  const inputs = Array.from(document.querySelectorAll<HTMLInputElement>('input.filter'));
+  const contests = Array.from(document.querySelectorAll<HTMLElement>('.contest'));
+  const jurisdictions = Array.from(document.querySelectorAll<HTMLElement>('main .jurisdiction'));
+  const empty = document.getElementById('no-results')!;
+  const apply = (q: string) => {
+    q = q.trim().toLowerCase();
+    let any = false;
+    for (const c of contests) {
+      const hit = !q || (c.dataset.search ?? '').includes(q);
+      c.classList.toggle('hidden', !hit);
+      if (hit) any = true;
+    }
+    for (const g of groups) g.classList.toggle('hidden', !g.querySelector('.contest:not(.hidden)'));
+    for (const j of jurisdictions) j.classList.toggle('hidden', !j.querySelector('.group:not(.hidden)'));
+    empty.classList.toggle('hidden', any);
+  };
+  for (const input of inputs) {
+    input.addEventListener('input', () => {
+      for (const other of inputs) if (other !== input) other.value = input.value;
+      apply(input.value);
+    });
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        for (const i of inputs) i.value = '';
+        apply('');
+      }
+    });
+  }
+
+  document.querySelectorAll<HTMLDetailsElement>('.contents-pop').forEach((d) => {
+    d.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => d.removeAttribute('open')));
+  });
+</script>
+
+<style>
+  .group {
+    scroll-margin-top: 76px;
+  }
+  .no-results {
+    padding: 40px 0;
+    color: var(--text-3);
+    text-align: center;
+  }
+</style>

@@ -1,0 +1,23 @@
+---
+import type { Jurisdiction } from '../lib/guide';
+import { slug } from '../lib/guide';
+interface Props {
+  jurisdictions: Jurisdiction[];
+}
+const { jurisdictions } = Astro.props;
+---
+
+{
+  jurisdictions.map((j) => (
+    <Fragment>
+      <a class="head" href={`#${slug(j.data.name)}`}>
+        {j.data.name}
+      </a>
+      {j.data.sections.map((s) => (
+        <a class="item" href={`#${slug(j.data.name + ' ' + s.name)}`} data-target={slug(j.data.name + ' ' + s.name)}>
+          {s.name}
+        </a>
+      ))}
+    </Fragment>
+  ))
+}

@@ -1,0 +1,337 @@
+name: City of San Francisco
+sections:
+  - name: Executive Offices
+    contests:
+      - office: Mayor of San Francisco
+        kind: ranked
+        candidates:
+          - { name: London Breed, incumbent: true }
+          - { name: Daniel Lurie }
+          - { name: Mark Farrell }
+          - { name: Aaron Peskin }
+          - { name: Ahsha Safaí }
+          - { name: Ellen Lee Zhou }
+          - { name: Dylan Hirsch-Shell }
+          - { name: Keith Freedman }
+          - { name: Nelson Mei }
+          - { name: Shahram Shariati }
+          - { name: Henry Flynn }
+          - { name: Paul Ybarra Robertson }
+          - { name: Jon Ernest Soderstrom }
+        picks:
+          - any_of:
+              - { name: London Breed }
+              - { name: Daniel Lurie }
+          - any_of:
+              - { name: London Breed }
+              - { name: Daniel Lurie }
+          - { name: Mark Farrell, note: if you must }
+        avoid:
+          - { name: Aaron Peskin }
+        why: >
+          Do not, under any circumstances, rank Aaron Peskin anywhere on your ballot.
+          Overall this is not a great mayoral election. London Breed has been an OK but not great mayor, Lurie is
+          kind of an unknown quantity, and the rest of these clowns are a serious downgrade from Breed. I won't
+          really be happy with any of these outcomes.
+      - office: District Attorney
+        kind: single
+        candidates:
+          - { name: Brooke Jenkins, incumbent: true }
+          - { name: Ryan Khojasteh }
+        picks:
+          - any_of:
+              - { name: Brooke Jenkins }
+              - { name: Ryan Khojasteh }
+      - office: City Attorney
+        kind: single
+        candidates:
+          - { name: David Chiu, incumbent: true }
+          - { name: Richard Woon }
+        picks:
+          - { name: David Chiu }
+      - office: Sheriff
+        kind: single
+        candidates:
+          - { name: Paul Miyamoto, incumbent: true }
+          - { name: Michael Juan }
+        picks:
+          - { name: Paul Miyamoto }
+      - office: Treasurer
+        kind: single
+        candidates:
+          - { name: José Cisneros, incumbent: true }
+        picks:
+          - { name: José Cisneros }
+
+  - name: San Francisco Board of Supervisors
+    contests:
+      - office: San Francisco Board of Supervisors, District 1
+        kind: ranked
+        candidates:
+          - { name: Connie Chan, incumbent: true }
+          - { name: Marjan Philhour }
+          - { name: Jen Nossokoff }
+          - { name: Jeremiah Boehner }
+          - { name: Sherman D'Silva }
+        picks:
+          - { name: Marjan Philhour }
+      - office: San Francisco Board of Supervisors, District 3
+        kind: ranked
+        candidates:
+          - { name: Danny Sauter }
+          - { name: Sharon Lai }
+          - { name: Moe Jamil }
+          - { name: Matthew Susk }
+          - { name: Wendy Ha Chau }
+          - { name: Eduard Navarro }
+        picks:
+          - { name: Danny Sauter }
+      - office: San Francisco Board of Supervisors, District 5
+        kind: ranked
+        candidates:
+          - { name: Dean Preston, incumbent: true }
+          - { name: Bilal Mahmood }
+          - { name: Scotty Jacobs }
+          - { name: Autumn Looijen }
+          - { name: Allen Jones }
+        picks:
+          - { name: Bilal Mahmood }
+      - office: San Francisco Board of Supervisors, District 7
+        kind: ranked
+        candidates:
+          - { name: Myrna Melgar, incumbent: true }
+          - { name: Matt Boschetto }
+          - { name: Stephen Martin-Pinto }
+          - { name: Edward Yee }
+        picks:
+          - { name: Myrna Melgar }
+      - office: San Francisco Board of Supervisors, District 9
+        kind: ranked
+        candidates:
+          - { name: Jackie Fielder }
+          - { name: Trevor Chandler }
+          - { name: Roberto Hernandez }
+          - { name: Stephen Torres }
+          - { name: Jaime Gutierrez }
+          - { name: Julian Bermudez }
+          - { name: H. Brown }
+        picks:
+          - any_of:
+              - { name: Trevor Chandler }
+              - { name: Roberto Hernandez }
+      - office: San Francisco Board of Supervisors, District 11
+        kind: ranked
+        candidates:
+          - { name: Michael Lai }
+          - { name: Chyanne Chen }
+          - { name: Ernest Jones }
+          - { name: Oscar Flores }
+          - { name: Adlah Chisti }
+          - { name: Jose Morales }
+          - { name: Roger Marenco }
+        picks:
+          - { name: Michael Lai }
+
+  - name: San Francisco Board of Education
+    contests:
+      - office: Members of the Board
+        kind: multi
+        seats: 4
+        candidates:
+          - { name: Matt Alexander, incumbent: true }
+          - { name: Jaime Huling }
+          - { name: Parag Gupta }
+          - { name: Supryia Ray }
+          - { name: John Jersin }
+          - { name: Virginia Cheung }
+          - { name: Ann Hsu }
+          - { name: Min Chang }
+          - { name: Laurance Lem Lee }
+          - { name: Maddy Krantz }
+          - { name: Lefteris Eleftheriou }
+        picks:
+          - { name: Parag Gupta }
+          - { name: Jaime Huling }
+          - { name: John Jersin }
+          - { name: Supryia Ray }
+
+  - name: Trustees of the City College of San Francisco
+    contests:
+      - office: College Trustees
+        kind: multi
+        seats: 4
+        candidates:
+          - { name: Alan Wong, incumbent: true }
+          - { name: Aliya Chisti, incumbent: true }
+          - { name: Luis Zamora, incumbent: true }
+          - { name: Heather McCarty }
+          - { name: Ruth Ferguson }
+          - { name: Leanna Louie }
+          - { name: Ben Kaplan }
+          - { name: Julio Ramos }
+        picks:
+          - { name: Aliya Chisti }
+          - { name: Ruth Ferguson }
+          - { name: Heather McCarty }
+          - { name: Luis Zamora }
+
+  - name: Bay Area Rapid Transit Board of Directors
+    contests:
+      - office: BART Director, District 7
+        kind: single
+        candidates:
+          - { name: Victor Flores }
+          - { name: Dana Lang }
+        picks:
+          - { name: Victor Flores }
+      - office: BART Director, District 9
+        kind: single
+        candidates:
+          - { name: Edward Wright }
+          - { name: Joe Sangirardi }
+        picks:
+          - { name: Joe Sangirardi }
+
+  - name: San Francisco Ballot Measures
+    contests:
+      - measure: Proposition A
+        title: School improvement bond
+        kind: measure
+        position: yes
+        why: >
+          This is quite similar to the state-wide Proposition 2, but is specific for San Francisco public
+          schools, which typically face cost challenges of their own due to the high costs of the city.
+      - measure: Proposition B
+        title: Health care, shelter, and street safety bond
+        kind: measure
+        position: yes
+        why: >
+          San Francisco's public hospitals and public spaces could use the funding. We have extremely limited
+          staff for street and sidewalk repair, and our public hospitals are in major need of renovation.
+      - measure: Proposition C
+        title: Inspector general
+        kind: measure
+        position: none
+        why: >
+          This ballot proposal creates an inspector general position in the controller's office. Such a position
+          would be extremely redundant with the existing office of the City Attorney, the office of the District
+          Attorney, the Sheriff's Office, and the Ethics Commission. Additionally, this new role does not bestow
+          any new functional powers to the IG or any of the existing regulatory bodies, and adds at best an
+          additional layer for coordination. You can vote for it if you want, but it doesn't really do anything
+          significant and is mostly just blustering from Aaron Peskin. I personally will be voting no.
+      - measure: Proposition D
+        title: City commissions and mayoral authority
+        kind: measure
+        position: yes
+        why: >
+          San Francisco's insane public commission system is home to more than a hundred different public
+          commissions staffed by well over a thousand commissioners. Commissioners are not elected officials.
+          They're appointed, often politically, and cannot be effectively managed by the mayor's office or even
+          the board of supervisors. This ballot proposition fundamentally retools the public commission system,
+          instates a hard limit of 65 commissions, and adds considerable accountability to the functioning of
+          these bodies by making them easier to regulate. The mayor and the board of supervisors should be the
+          ones doing this stuff (and they're subject to the best form of public accountability: elections!)
+      - measure: Proposition E
+        title: Commission streamlining task force
+        kind: measure
+        position: no
+        why: >
+          Proposition E is a competing measure to Proposition D, and like Proposition C was placed on the ballot
+          by mayoral candidate Supervisor Aaron Peskin. Proposition E attempts to reform the public commission
+          system, but does so instead by forming a "Task Force" to study the various commissions and present
+          recommendations to the public. It is a feckless regulation that does absolutely nothing. The "task
+          force" is accountable to nobody, and there is no legal mechanism that ensures that what, if any,
+          recommendations it produces are actually implemented.
+        note: >
+          Proposition D and Proposition E are mutually exclusive measures. In the event that both of them cross
+          the 50% threshold, the proposition with more votes will become law, and the other will be discarded.
+      - measure: Proposition F
+        title: Deferred police retirement
+        kind: measure
+        position: yes
+        why: >
+          San Francisco is facing a well documented police staffing shortage, and this proposal is a novel if
+          temporary way to expand staffing by enabling police officers to defer retirement in exchange for
+          additional overtime pay. I do not expect this law to make a significant dent in the staffing shortage,
+          or to fix the numerous problems with police performance in San Francisco, but it's better than nothing.
+      - measure: Proposition G
+        title: Rental subsidies for affordable housing
+        kind: measure
+        position: yes
+        why: >
+          The existing low-income housing subsidies are not nearly enough, and this modest increase will provide
+          more people with more access to housing in the city. Like Proposition F, I do not expect this law to
+          make any serious improvements to housing subsidies or effectively combat the high costs of housing in
+          San Francisco in general, but it's a relatively cheap fix that is better than doing nothing.
+      - measure: Proposition H
+        title: Firefighter retirement age
+        kind: measure
+        position: yes
+        why: >
+          This brings the retirement age for San Francisco's firefighters back to 55, the age it was in 2012.
+          Firefighters have difficult jobs with elevated health risks such as cancer, and we're not facing nearly
+          the staffing shortage here as we are with the police.
+      - measure: Proposition I
+        title: Retirement benefits for nurses and 911 dispatchers
+        kind: measure
+        position: yes
+        why: >
+          Gives 911 dispatchers, who do incredible work, access to retirement benefits. In general we need far
+          more of these people and we should make their jobs as attractive as we can make them. This law does
+          other good things for nurses and other public health workers as well, but the retirement benefits for
+          911 dispatchers is why you should vote yes.
+      - measure: Proposition J
+        title: Children and youth fund consolidation
+        kind: measure
+        position: yes
+        why: >
+          San Francisco currently houses six different youth related activity departments, in addition to the
+          San Francisco Unified School District. Funding for these things is spread needlessly thin and has tons
+          of extra cost built in because of the redundancy. This law unifies these systems into a single council,
+          which should reduce costs, improve quality of service, and increase oversight.
+      - measure: Proposition K
+        title: Close the Upper Great Highway to cars
+        kind: measure
+        position: yes
+        why: Bans cars on the Great Highway. Cars are bad.
+      - measure: Proposition L
+        title: Ride-hail tax for Muni
+        kind: measure
+        position: none
+        why: >
+          Look, I'm an Uber employee and cannot in good faith tell you that my explanation for this isn't at
+          least partially self interested, but I will just say that gross receipt taxes in general are not a
+          great funding system, and this nominal tax increase will barely put a dent in Muni's funding cliff. To
+          properly fix Muni's funding problem, you need a massive investment like 2022's Proposition A which
+          unfortunately did not pass. This measure seems pretty obviously motivated by populist rage at
+          self-driving cars, and it will not actually lead to significant changes to ride-sharing consumption or
+          Muni's budget crisis. It will make things cost more, though.
+      - measure: Proposition M
+        title: Business tax restructuring
+        kind: measure
+        position: yes
+        why: >
+          San Francisco's increased office vacancy means the existing focus on low payroll taxes doesn't really
+          work for us anymore. This system expands the availability of gross receipts tax exemptions to a larger
+          number of businesses (annual sales of $5M instead of the previous $2.1M) and ensures that companies
+          with a high number of remote workers are still paying their share. This restructuring is a necessary
+          and fair reflection of the realities of the city's current budget and the new post-covid environment
+          in which we can no longer reliably count exclusively on massive downtown employers for revenue at
+          scale.
+      - measure: Proposition N
+        title: First responder student loan forgiveness
+        kind: measure
+        position: yes
+        why: >
+          This proposal is a novel way of forgiving student loans for first responders who work in the city and
+          does so without an additional penny in extra public spending. EMTs, 911 dispatchers, and many others
+          do critical work in our city, and we have critical staffing shortages for all of them. I don't think
+          this law will actually do much in the way of addressing that shortage, but it's better than nothing
+          and could help on the margin. It might also tell us whether such an approach could work at scale.
+      - measure: Proposition O
+        title: Reproductive freedom
+        kind: measure
+        position: yes
+        why: >
+          Enshrines the legal right to reproductive freedom in the city's health code. Reproductive freedom is
+          good. The government telling you what to do with your body is bad.

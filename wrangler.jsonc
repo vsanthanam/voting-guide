@@ -1,0 +1,16 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "voting-guide",
+  "compatibility_date": "2026-10-01",
+  "workers_dev": true,
+  // Static site: no Worker script, just the built files served from Cloudflare's edge.
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  },
+  "routes": [
+    { "pattern": "varunvotes.fyi", "zone_name": "varunvotes.fyi", "custom_domain": true },
+    { "pattern": "www.varunvotes.fyi", "zone_name": "varunvotes.fyi", "custom_domain": true }
+  ]
+}

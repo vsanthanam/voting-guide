@@ -1,0 +1,49 @@
+---
+import type { Candidate } from '../lib/guide';
+interface Props {
+  person: Candidate;
+  struck?: boolean;
+}
+const { person, struck = false } = Astro.props;
+---
+
+<span class:list={['person', { struck }]}>
+  <span class="name">{person.name}</span>
+  {person.party && <span class="party">{person.party}</span>}
+  {person.incumbent && <span class="meta">Incumbent</span>}
+  {person.note && <span class="meta">{person.note}</span>}
+</span>
+
+<style>
+  .person {
+    display: inline-flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 0 8px;
+    min-width: 0;
+  }
+  .name {
+    color: var(--text);
+    font-weight: 500;
+  }
+  .party {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-2);
+    background: var(--gray-tint);
+    border-radius: 6px;
+    padding: 1px 6px;
+    line-height: 16px;
+    position: relative;
+    top: -1px;
+  }
+  .meta {
+    font-size: 14px;
+    color: var(--text-3);
+  }
+  .struck .name {
+    text-decoration: line-through;
+    color: var(--text-3);
+    font-weight: 400;
+  }
+</style>

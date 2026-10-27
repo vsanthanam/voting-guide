@@ -1,0 +1,74 @@
+name: City of Palo Alto
+intro: >
+  No Santa Clara County offices are on the November ballot for Palo Alto voters. The District Attorney,
+  Sheriff, and Assessor were settled in June, Supervisor District 5 is not up until 2028, and the County
+  Superintendent is appointed.
+sections:
+  - name: Palo Alto City Council
+    contests:
+      - office: Council Members
+        kind: multi
+        seats: 3
+        note: Three four-year seats. Ed Lauing and Vicki Veenker are running again; Julie Lythcott-Haims is not.
+        candidates:
+          - { name: Bryna Chang, note: chair, Planning and Transportation Commission }
+          - { name: Yu "Yudy" Deng, note: Parks and Recreation commissioner }
+          - { name: Henry Etzkowitz, note: sociologist, Stanford research fellow }
+          - { name: Gary Gechlik, note: physician }
+          - { name: Raymond Lee Goins, note: youth justice advocate }
+          - { name: Brian Hamachek, note: software engineer }
+          - { name: Ed Lauing, incumbent: true, note: former mayor }
+          - { name: Vicki Veenker, incumbent: true, note: current mayor }
+
+  - name: Palo Alto Unified School District
+    contests:
+      - office: Board Members
+        kind: multi
+        seats: 2
+        note: Shounak Dharap and Shana Segal are not running. Leor Melamedov withdrew before filing.
+        candidates:
+          - { name: John Craig, note: PAUSD parent, engineering and management consulting }
+          - { name: Linda Henigin, note: former Duveneck math teacher, backed by the teachers' union }
+          - { name: Avery Wang, note: Shazam co-founder, parent of three PAUSD alumni }
+
+  - name: Special Districts
+    contests:
+      - office: Santa Clara Valley Water District Director, District 7
+        kind: single
+        note: District 7 covers Palo Alto, Mountain View, Los Altos, and nearby areas.
+        candidates:
+          - { name: Rebecca Eisenberg, incumbent: true, note: subject of a district investigation finding harassment of colleagues, which she disputes }
+          - { name: Pete Dailey, note: Los Altos councilmember }
+      - office: Midpeninsula Regional Open Space District Director, Ward 5
+        kind: single
+        verify: true
+        note: >
+          Only Palo Alto voters living in Ward 5 see this contest. Ward 2, which covers the rest of Palo Alto,
+          had a single qualified candidate and is expected to be filled by appointment.
+        candidates:
+          - { name: Karen C. Holman, incumbent: true, note: former Palo Alto mayor }
+          - { name: Shannon M. Ramiro, note: Sunnyvale }
+
+  - name: Palo Alto Ballot Measure
+    contests:
+      - measure: Measure J
+        title: Half-cent sales tax for Cubberley
+        kind: measure
+        summary: Raises Palo Alto's sales tax by 0.5% with no sunset, about $15.6 million a year as a general tax, which the Council says it intends to use to buy PAUSD's seven acres of Cubberley Community Center and modernize it.
+        threshold: "50%+1"
+        placed_by: City Council, unanimous
+        supporters: All five council members, the PAUSD board, teachers' union, Joe Simitian, League of Women Voters of Palo Alto, Palo Alto Forward
+        opponents: Former mayor Lydia Kou, Silicon Valley Taxpayers Association, Mercury News and Daily Post editorial boards
+        note: Because it is a general tax, nothing legally binds the money to Cubberley. Combined with RTM, Palo Alto's sales tax would exceed 10%.
+
+  - name: Regional Measures
+    intro: Santa Clara County is one of the five counties in the regional transit measure. It is counted across all five.
+    contests:
+      - measure: Regional Measure RTM
+        title: Regional transit sales tax
+        kind: measure
+        summary: Enacts a 14-year 0.5% sales tax in Santa Clara County (1% in San Francisco), with Santa Clara's share going mostly to VTA and Caltrain, as part of a five-county measure raising about $980 million a year for transit operations.
+        threshold: "50%+1 across all five counties combined"
+        placed_by: Multi-county signature petition under SB 63
+        supporters: BART, Muni, Caltrain, AC Transit, SPUR, Transform, Seamless Bay Area, Ro Khanna, Sam Liccardo
+        opponents: Committee for Affordable Bay Area Transit, Mercury News and Daily Post editorial boards, Pacific Research Institute

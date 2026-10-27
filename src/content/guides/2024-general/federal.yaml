@@ -1,0 +1,61 @@
+name: Federal Government
+sections:
+  - name: Executive Offices
+    contests:
+      - office: President and Vice President of the United States of America
+        kind: single
+        candidates:
+          - { name: Kamala Harris and Tim Walz, party: D }
+          - { name: Donald Trump and JD Vance, party: R }
+          - { name: Robert F. Kennedy Jr. and Nicole Shanahan, party: AIP }
+          - { name: Jill Stein and Butch Ware, party: G }
+          - { name: Claudia De la Cruz and Karina Garcia, party: PF }
+          - { name: Chase Oliver and Mike ter Maat, party: LIB }
+        picks:
+          - { name: Kamala Harris and Tim Walz, party: D }
+
+  - name: United States Senate
+    contests:
+      - office: United States Senate, Special Election for California Senator
+        area: Remainder of term, 2018 to 2024
+        kind: single
+        candidates:
+          - { name: Adam Schiff, party: D }
+          - { name: Steve Garvey, party: R }
+        picks:
+          - { name: Adam Schiff, party: D }
+      - office: United States Senate, Junior Senator for California
+        area: Full term, 2024 to 2030
+        kind: single
+        candidates:
+          - { name: Adam Schiff, party: D }
+          - { name: Steve Garvey, party: R }
+        picks:
+          - { name: Adam Schiff, party: D }
+
+  - name: United States House of Representatives
+    contests:
+      - office: United States House of Representatives, District 16
+        area: Palo Alto
+        kind: single
+        candidates:
+          - { name: Sam Liccardo, party: D }
+          - { name: Evan Low, party: D }
+        picks:
+          - { name: Evan Low, party: D }
+      - office: United States House of Representatives, District 12
+        area: Oakland Hills
+        kind: single
+        candidates:
+          - { name: Lateefah Simon, party: D }
+          - { name: Jennifer Tran, party: D }
+        picks:
+          - { name: Lateefah Simon, party: D }
+      - office: United States House of Representatives, District 11
+        area: San Francisco
+        kind: single
+        candidates:
+          - { name: Nancy Pelosi, party: D, incumbent: true }
+          - { name: Bruce Lou, party: R }
+        picks:
+          - { name: Nancy Pelosi, party: D }

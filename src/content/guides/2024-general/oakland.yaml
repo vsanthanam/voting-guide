@@ -1,0 +1,146 @@
+name: City of Oakland
+sections:
+  - name: Oakland Executive Offices
+    contests:
+      - office: City Attorney
+        kind: single
+        candidates:
+          - { name: Ryan Richardson }
+          - { name: Brenda Harbin-Forte }
+        picks:
+          - { name: Ryan Richardson }
+
+  - name: Oakland City Council
+    contests:
+      - office: Oakland City Council, At-Large
+        kind: ranked
+        candidates:
+          - { name: Rowena Brown }
+          - { name: LeRonne Armstrong }
+          - { name: Charlene Wang }
+          - { name: Shawn Danino }
+          - { name: Kanitha Matoury }
+          - { name: "Cristina \"Tina\" Tostado" }
+          - { name: Mindy Ruth Pechenuk }
+          - { name: Fabian Robinson }
+          - { name: Nancy Sidebotham }
+          - { name: Selika Thomas }
+        picks:
+          - { name: Rowena Brown }
+      - office: Oakland City Council, District 1
+        kind: ranked
+        candidates:
+          - { name: Zac Unger }
+          - { name: Len Raphael }
+          - { name: Edward C. Frank }
+        picks:
+          - { name: Zac Unger }
+      - office: Oakland City Council, District 3
+        kind: ranked
+        candidates:
+          - { name: Carroll Fife, incumbent: true }
+          - { name: Warren Mitchell Logan }
+          - { name: Baba Afolabi }
+          - { name: Michelle D. Hailey }
+          - { name: Meron Semedar }
+          - { name: Shan M. Hirsch }
+        picks:
+          - { name: Carroll Fife }
+      - office: Oakland City Council, District 5
+        kind: ranked
+        candidates:
+          - { name: Noel Gallo, incumbent: true }
+          - { name: Erin Armstrong }
+          - { name: Dominic Prado }
+        picks:
+          - { name: Noel Gallo }
+      - office: Oakland City Council, District 7
+        kind: ranked
+        candidates:
+          - { name: Ken Houston }
+          - { name: Iris Merriouns }
+          - { name: Marcie Hodge }
+          - { name: Merika Goolsby }
+        picks:
+          - { name: Iris Merriouns }
+
+  - name: Oakland Unified School District
+    contests:
+      - office: OUSD Director, District 1
+        kind: ranked
+        candidates:
+          - { name: Rachel Latta }
+          - { name: Benjamin Salop }
+        picks:
+          - { name: Rachel Latta }
+      - office: OUSD Director, District 3
+        kind: ranked
+        candidates:
+          - { name: VanCedric Williams, incumbent: true }
+          - { name: Dwayne Aikens Jr. }
+        picks:
+          - { name: VanCedric Williams }
+
+  - name: Recall Elections
+    contests:
+      - measure: The Recall of Oakland Mayor Sheng Thao
+        kind: recall
+        position: none
+      - measure: The Recall of District Attorney Pamela Price
+        kind: recall
+        position: no
+
+  - name: East Bay Municipal Utility District
+    contests:
+      - office: EBMUD Director, Ward 5
+        kind: single
+        candidates:
+          - { name: Jim Oddie }
+          - { name: John E. Lewis }
+          - { name: Alex Spehr }
+        picks:
+          - { name: Jim Oddie }
+      - office: EBMUD Director, Ward 6
+        kind: single
+        candidates:
+          - { name: Valerie Lewis }
+          - { name: Richard De Vera }
+        picks:
+          - { name: Valerie Lewis }
+
+  - name: East Bay Regional Park District
+    contests:
+      - office: EBRPD Director, Ward 2
+        kind: single
+        candidates:
+          - { name: Lynda Deschambault }
+          - { name: Casey Farmer }
+          - { name: Shane Reisman }
+        picks:
+          - { name: Casey Farmer }
+      - office: EBRPD Director, Ward 4
+        kind: single
+        candidates:
+          - { name: Luana España }
+          - { name: Taryn Edwards }
+          - { name: Susan Gonzales }
+          - { name: Tim McMahon }
+        picks:
+          - { name: Luana España }
+
+  - name: Bay Area Rapid Transit Board of Directors
+    contests:
+      - office: BART Director, District 5
+        kind: single
+        candidates:
+          - { name: Melissa Hernandez, incumbent: true }
+          - { name: Joseph Grcar }
+        picks:
+          - { name: Melissa Hernandez }
+      - office: BART Director, District 7
+        kind: single
+        candidates:
+          - { name: Victor Flores }
+          - { name: Dana Lang }
+        picks:
+          - { name: Victor Flores }

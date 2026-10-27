@@ -1,0 +1,44 @@
+name: Federal Government
+sections:
+  - name: United States House of Representatives
+    intro: There is no United States Senate race in California this year.
+    contests:
+      - office: United States House of Representatives, District 11
+        area: San Francisco
+        kind: single
+        note: Open seat after Nancy Pelosi's retirement. Two Democrats advanced from the June top-two primary.
+        candidates:
+          - { name: Scott Wiener, party: D }
+          - { name: Connie Chan, party: D }
+        picks:
+          - { name: Scott Wiener, party: D }
+        avoid:
+          - { name: Connie Chan, party: D }
+        why: |
+          Scott Wiener is the most accomplished legislator in the State Senate. He has single-handedly passed some of the most important housing legislation in California, and he is more responsible than anyone for the state's wholesale rethinking of housing policy.
+
+          Chan, by contrast, has been one of the worst, most anti-urban members of the San Francisco Board of Supervisors. Her main accomplishments include opposing bike lanes, wanting to reopen the Great Highway to cars, and a general hostility to the idea of urban density. Her candidacy is only viable at all because of some stupid Pelosi-Wiener beef, which is not a reason to send her to Congress. She fucking sucks. Do not vote for her.
+      - office: United States House of Representatives, District 12
+        area: Oakland Hills
+        kind: single
+        candidates:
+          - { name: Lateefah Simon, party: D, incumbent: true }
+          - { name: Jamie Joyce, party: D }
+        picks:
+          - { name: Lateefah Simon, party: D, incumbent: true }
+      - office: United States House of Representatives, District 16
+        area: Palo Alto
+        kind: single
+        candidates:
+          - { name: Sam Liccardo, party: D, incumbent: true }
+          - { name: Peter Sundin Soulé, party: R }
+        picks:
+          - { name: Sam Liccardo, party: D, incumbent: true }
+      - office: United States House of Representatives, District 15
+        area: San Mateo
+        kind: single
+        candidates:
+          - { name: Kevin Mullin, party: D, incumbent: true }
+          - { name: Charles Hoelter, party: R }
+        picks:
+          - { name: Kevin Mullin, party: D, incumbent: true }

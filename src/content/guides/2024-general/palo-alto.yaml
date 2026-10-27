@@ -1,0 +1,48 @@
+name: City of Palo Alto
+sections:
+  - name: Palo Alto City Council
+    contests:
+      - office: Council Members
+        kind: multi
+        seats: 4
+        candidates:
+          - { name: Pat Burt, incumbent: true }
+          - { name: Katie Causey }
+          - { name: Anne Cribbs }
+          - { name: Henry Etzkowitz }
+          - { name: George Lu }
+          - { name: Keith Reckdahl }
+          - { name: Greer Stone, incumbent: true }
+          - { name: Doria Summa }
+          - { name: Cari Templeton }
+        picks:
+          - { name: Katie Causey }
+          - { name: George Lu }
+          - { name: Cari Templeton }
+
+  - name: Palo Alto Unified School District
+    contests:
+      - office: Board Members
+        kind: multi
+        seats: 3
+        candidates:
+          - { name: Rowena Chiu }
+          - { name: Nicole Chiu-Wang }
+          - { name: Chris Colohan }
+          - { name: Mazhar Hussain }
+          - { name: Alison Kamhi }
+          - { name: Josh Salcman }
+        picks:
+          - { name: Rowena Chiu }
+          - { name: Nicole Chiu-Wang }
+          - { name: Josh Salcman }
+
+  - name: Palo Alto Ballot Measure
+    contests:
+      - measure: Measure D
+        title: Transit center connector road
+        kind: measure
+        position: yes
+        why: >
+          Funds the construction of a new road that connects the Palo Alto Transit Center to El Camino Real.
+          Public transit infrastructure is good. Making stations more useful is good.

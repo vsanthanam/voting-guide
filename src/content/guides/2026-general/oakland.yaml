@@ -1,0 +1,136 @@
+name: City of Oakland
+intro: >
+  Nothing county-level is on the November ballot for an Oakland voter. The District Attorney race was
+  settled outright in June, and the Supervisor, Sheriff, Assessor, and Treasurer seats all run through 2028.
+sections:
+  - name: Oakland Executive Offices
+    contests:
+      - office: Mayor of Oakland
+        kind: ranked
+        note: Full four-year term. Barbara Lee won the April 2025 special election for the remainder of Sheng Thao's term.
+        candidates:
+          - { name: Barbara Lee, party: D, incumbent: true }
+          - { name: Brenda F. Grisham, note: East Oakland business owner, officer of the Price recall committee }
+          - { name: Mindy Ruth Pechenuk, party: R, note: ran for Assembly as a Republican in 2022 and 2024 }
+          - { name: Julius Robinson, note: community investment executive }
+      - office: Oakland City Auditor
+        kind: single
+        note: Uncontested.
+        candidates:
+          - { name: Michael C. Houston, incumbent: true }
+
+  - name: Oakland City Council
+    contests:
+      - office: Oakland City Council, District 4
+        area: Oakland Hills
+        kind: ranked
+        note: Uncontested. District 4 covers Montclair, Piedmont Pines, Dimond, Laurel, Glenview, and Redwood Heights.
+        candidates:
+          - { name: Janani Ramachandran, incumbent: true }
+      - office: Oakland City Council, District 2
+        area: Chinatown, Jack London, Lake Merritt east side
+        kind: ranked
+        candidates:
+          - { name: Charlene Wang, incumbent: true, note: won the April 2025 special election, author of Measure FF }
+          - { name: Nate Adams, note: community organizer }
+      - office: Oakland City Council, District 6
+        area: East Oakland
+        kind: ranked
+        candidates:
+          - { name: Kevin E. Jenkins, incumbent: true, note: council president, co-sponsor of Measure EE }
+          - { name: Nancy S. Sidebotham, note: tax preparer }
+
+  - name: Oakland Unified School District
+    intro: Ranked choice. Oakland residents 16 and older may vote in school board races this year. All three incumbents are running.
+    contests:
+      - office: OUSD Director, District 4
+        area: Oakland Hills
+        kind: ranked
+        candidates:
+          - { name: Mike Hutchinson, incumbent: true, note: seeking a third term }
+          - { name: Kathryn Camp, note: Glenview Elementary PTA president }
+          - { name: Sylvia Pfeiffer Williams, note: former OUSD adult-ed teacher }
+      - office: OUSD Director, District 2
+        kind: ranked
+        candidates:
+          - { name: Jennifer Brouhard, incumbent: true, note: board president }
+          - { name: Arielle Fleisher, note: OUSD parent, policy at Waymo, formerly SPUR and SFMTA }
+      - office: OUSD Director, District 6
+        kind: ranked
+        candidates:
+          - { name: Valarie Bachelor, incumbent: true, note: board vice president }
+          - { name: LeAna Powell, note: Burckhalter Elementary parent }
+          - { name: Alexandra Williams, note: math teacher at AIMS College Prep }
+
+  - name: East Bay Municipal Utility District
+    contests:
+      - office: EBMUD Director, Ward 3
+        area: Piedmont and the Oakland Hills
+        kind: single
+        verify: true
+        note: Ward 3 covers Piedmont, a large share of Oakland, Orinda, and Moraga. Confirm your ward on the county sample ballot.
+        candidates:
+          - { name: Marguerite Young, incumbent: true, note: board president, on the board since 2014 }
+          - { name: Don Gray, note: retired wastewater manager }
+
+  - name: AC Transit Board of Directors
+    intro: First election under the new seven-ward map.
+    contests:
+      - office: AC Transit Director, Ward 3
+        area: North Oakland, Montclair, Piedmont, Lake Merritt, Alameda
+        kind: single
+        candidates:
+          - { name: Joel B. Young, incumbent: true, note: at-large director since 2009, found to have violated the agency's harassment policy }
+          - { name: Adriana Valencia, note: Temescal transit rider and product manager }
+      - office: AC Transit Director, Ward 4
+        area: Central and East Oakland
+        kind: single
+        candidates:
+          - { name: Sarah Syed, incumbent: true, note: transportation planner }
+          - { name: Gabriel Morales, note: teacher and principal }
+
+  - name: Bay Area Rapid Transit Board of Directors
+    intro: >
+      District 4 is the only BART seat up this year that touches Oakland. District 7, which covers downtown,
+      Rockridge, and MacArthur, is not up until 2028. No East Bay Regional Park District ward covering Oakland is on the ballot.
+    contests:
+      - office: BART Director, District 4
+        area: Fruitvale, East Oakland, San Leandro
+        kind: single
+        verify: true
+        note: Whether a given Montclair address falls in District 4 or District 7 is unconfirmed. Check the county sample ballot.
+        candidates:
+          - { name: Robert Raburn, incumbent: true, note: director since 2010 }
+          - { name: Luis Reynoso, note: former Chabot-Las Positas trustee }
+
+  - name: Oakland Ballot Measures
+    contests:
+      - measure: Measure EE
+        title: Strong mayor charter amendment
+        kind: measure
+        summary: Replaces Oakland's hybrid mayor and city administrator system with a strong-mayor system. The mayor becomes chief executive with a legislative veto and a line-item budget veto, overridable by six of eight councilmembers, and loses the council tie-breaking vote. The council gains confirmation power over key department heads, subpoena power, and a full-time role.
+        threshold: "50%+1"
+        placed_by: City Council on a 4 to 4 vote, with Mayor Lee breaking the tie
+        supporters: Mayor Barbara Lee, Council President Kevin Jenkins, former mayor Libby Schaaf, Empower Oakland, San Francisco Foundation
+        opponents: Councilmembers Zac Unger, Janani Ramachandran, Noel Gallo, and Ken Houston, former councilmember Loren Taylor, Supervisor Nate Miley, Oakland NAACP
+        note: The City Auditor estimates a first-year implementation cost of $2 million to $2.6 million.
+      - measure: Measure FF
+        title: End the transfer tax foreclosure exemption
+        kind: measure
+        summary: Starting in 2027, removes the real property transfer tax exemption for most transfers through foreclosure, keeping exemptions for individuals acquiring small residential property and for community banks, generating an estimated $4 million to $13 million a year.
+        threshold: "50%+1"
+        placed_by: City Council, unanimous
+        supporters: Councilmember Charlene Wang, SPUR, Empower Oakland
+        opponents: No organized opposition reported.
+
+  - name: Regional Measures
+    intro: Alameda County is one of the five counties in the regional transit measure. It is counted across all five. About 65% of Alameda County's share would go to BART.
+    contests:
+      - measure: Regional Measure RTM
+        title: Regional transit sales tax
+        kind: measure
+        summary: Enacts a 14-year 0.5% sales tax in Alameda County (1% in San Francisco) as part of a five-county measure raising about $980 million a year for BART, AC Transit, Muni, Caltrain, VTA, and SamTrans operations, with targeted road repair.
+        threshold: "50%+1 across all five counties combined"
+        placed_by: Multi-county signature petition under SB 63
+        supporters: Lateefah Simon, Scott Wiener, Jesse Arreguín, Buffy Wicks, Barbara Lee, Alameda Labor Council, SEIU 1021, Bay Area Council, SPUR
+        opponents: Committee for Affordable Bay Area Transit, former BART director Debora Allen, Steve Glazer, Quentin Kopp, county taxpayers' associations
