@@ -1,13 +1,11 @@
-election: November 2026 General Election
+election: 2026 General Election
 date: 2026-11-03
 author: Varun Santhanam
-status: draft
-intro: >
-  Governor, every statewide office, fourteen state propositions, and a local ballot in each of five cities.
-  Items marked "Not decided yet" are still being worked on.
+status: published
 jurisdictions:
   - federal
   - california
+  - bay-area
   - san-francisco
   - oakland
   - palo-alto

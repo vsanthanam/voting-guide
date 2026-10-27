@@ -17,12 +17,11 @@ const s = stats(lg);
 const draft = guide.data.status === 'draft';
 ---
 
-<Base title={guide.data.election} description={`${guide.data.election}: picks and reasoning for every race and measure.`}>
+<Base title={guide.data.election} description={`${guide.data.election}: picks and reasoning for every race and measure.`} image={`/og/${guide.id}.png`}>
   <header class="masthead">
     <div class="container">
       <h1>{guide.data.election}</h1>
       <p class="when">{formatDate(guide.data.date)}</p>
-      <p class="lede">Checked circles are my picks. Everything else is what's printed on the ballot.</p>
       {draft && <p><span class="label draft">Still being written. {s.open} of {s.contests} items don't have a recommendation yet.</span></p>}
       {guide.data.intro && <div class="intro prose" set:html={md(guide.data.intro)} />}
     </div>

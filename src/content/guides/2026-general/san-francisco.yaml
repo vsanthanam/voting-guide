@@ -7,55 +7,104 @@ sections:
         note: Uncontested.
         candidates:
           - { name: Joaquín Torres, incumbent: true }
+        picks:
+          - { name: Joaquín Torres }
       - office: Public Defender
         kind: single
         note: Uncontested.
         candidates:
           - { name: Mano Raju, incumbent: true }
+        picks:
+          - { name: Mano Raju }
 
   - name: San Francisco Board of Supervisors
     contests:
       - office: San Francisco Board of Supervisors, District 2
         kind: ranked
         candidates:
-          - { name: Stephen Sherrill, incumbent: true, note: appointed Dec 2024, won the June 2026 special election }
+          - { name: Stephen Sherrill, incumbent: true, note: "appointed Dec 2024, won the June 2026 special election" }
           - { name: Nicholas Berg }
-          - { name: Guy McCoy, note: manager, retired military }
+          - { name: Guy McCoy, note: "manager, retired military" }
           - { name: Monthanus Ratanapakdee, note: community advocate }
+        picks:
+          - { name: Stephen Sherrill }
+          - any_of:
+              - { name: Guy McCoy }
+              - { name: Monthanus Ratanapakdee }
+          - any_of:
+              - { name: Guy McCoy }
+              - { name: Monthanus Ratanapakdee }
+        avoid:
+          - { name: Nicholas Berg }
       - office: San Francisco Board of Supervisors, District 4
         kind: ranked
         candidates:
-          - { name: Alan Wong, incumbent: true, note: appointed Dec 2025, won the June 2026 special election }
+          - { name: Alan Wong, incumbent: true, note: "appointed Dec 2025, won the June 2026 special election" }
           - { name: Albert Chow, note: hardware store owner }
           - { name: Jeremy Julian Greco, note: campus coordinator }
+        picks:
+          - { name: Alan Wong }
+          - { name: Albert Chow }
+        avoid:
+          - { name: Jeremy Julian Greco }
       - office: San Francisco Board of Supervisors, District 6
         kind: ranked
         candidates:
           - { name: Matt Dorsey, incumbent: true }
           - { name: Alex Behrend, note: organizer }
+        picks:
+          - { name: Matt Dorsey }
+        avoid:
+          - { name: Alex Behrend }
       - office: San Francisco Board of Supervisors, District 8
         kind: ranked
         note: Open seat. Rafael Mandelman is term-limited. Manny Yekutiel dropped out after sexual assault allegations but remains on the ballot.
         candidates:
           - { name: Gary McCoy, note: healthcare policy advocate }
-          - { name: Michael T. Nguyen, note: attorney, drag activist }
+          - { name: Michael T. Nguyen, note: "attorney, drag activist" }
           - { name: Darshini Patel, note: community advocate }
           - { name: Emanuel "Manny" Yekutiel, note: withdrew }
+        picks:
+          - { name: Darshini Patel }
+          - { name: Gary McCoy }
+        avoid:
+          - { name: Michael T. Nguyen }
+          - { name: Emanuel "Manny" Yekutiel, note: "credibly accused of sexual assault, dropped out, still on the ballot" }
       - office: San Francisco Board of Supervisors, District 10
         kind: ranked
         note: Open seat. Shamann Walton is term-limited. Ten candidates.
         candidates:
           - { name: Pearci "PJ" Bastiany III, note: MPA graduate student }
-          - { name: Dion-Jay "DJ" Brookter, note: former CEO, Young Community Developers }
+          - { name: Dion-Jay "DJ" Brookter, note: "former CEO, Young Community Developers" }
           - { name: Deandra Bryant, note: community advocate }
-          - { name: Theo Ellington, note: executive director, Bayview Opera House }
-          - { name: J.R. Eppler, note: small business attorney, Board of Appeals commissioner }
-          - { name: Ellsworth "Ell" M. Jennison, Jr., note: carpenter }
+          - { name: Theo Ellington, note: "executive director, Bayview Opera House" }
+          - { name: J.R. Eppler, note: "small business attorney, Board of Appeals commissioner" }
+          - { name: 'Ellsworth "Ell" M. Jennison, Jr.', note: carpenter }
           - { name: Mike Trouble Lin, note: small business consultant }
           - { name: Jamo Muhammad }
-          - { name: Jessica Pessecow, note: legal representative, nurse }
+          - { name: Jessica Pessecow, note: "legal representative, nurse" }
           - { name: Shawn M. Richard, note: nonprofit CEO }
         verify: true
+        picks:
+          - { name: Theo Ellington }
+          - any_of:
+              - { name: Deandra Bryant }
+              - { name: 'Ellsworth "Ell" M. Jennison, Jr.' }
+              - { name: Mike Trouble Lin }
+              - { name: Jamo Muhammad }
+              - { name: Jessica Pessecow }
+              - { name: Shawn M. Richard }
+          - any_of:
+              - { name: Deandra Bryant }
+              - { name: 'Ellsworth "Ell" M. Jennison, Jr.' }
+              - { name: Mike Trouble Lin }
+              - { name: Jamo Muhammad }
+              - { name: Jessica Pessecow }
+              - { name: Shawn M. Richard }
+        avoid:
+          - { name: Pearci "PJ" Bastiany III }
+          - { name: Dion-Jay "DJ" Brookter }
+          - { name: J.R. Eppler }
 
   - name: San Francisco Board of Education
     contests:
@@ -71,6 +120,10 @@ sections:
           - { name: Laurance Lee, note: general contractor }
           - { name: Reina Tello, note: community organizer }
           - { name: Tim Tung, note: research analyst }
+        picks:
+          - { name: Autumn Brown Garibay }
+          - { name: Phil Kim }
+          - { name: Tim Tung }
 
   - name: Trustees of the City College of San Francisco
     contests:
@@ -84,14 +137,20 @@ sections:
           - { name: Monroe Lace, note: public school teacher }
           - { name: Leah LaCroix, note: administrative analyst }
           - { name: Jeremy Lee, note: asset manager }
-          - { name: Bunny McFadden, note: educator, journalist }
+          - { name: Bunny McFadden, note: "educator, journalist" }
           - { name: Erwin Tam, note: municipal financial advisor }
           - { name: Lisa Palagi Wynn II, note: equity researcher }
+        picks:
+          - { name: Elijah Ball }
+          - { name: Monroe Lace }
+          - { name: Erwin Tam }
       - office: College Trustee, remainder of term ending January 2029
         kind: single
         note: Uncontested. Appointed to Alan Wong's vacated seat.
         candidates:
           - { name: Ruth Ferguson, incumbent: true }
+        picks:
+          - { name: Ruth Ferguson }
 
   - name: Bay Area Rapid Transit Board of Directors
     contests:
@@ -102,6 +161,8 @@ sections:
           the Marina, the Richmond, the Sunset, and Ingleside. Janice Li is not running. Uncontested.
         candidates:
           - { name: Sara Barz, note: transportation planner }
+        picks:
+          - { name: Sara Barz }
 
   - name: San Francisco Ballot Measures
     intro: Every local measure this year needs a simple majority to pass.
@@ -114,6 +175,19 @@ sections:
         placed_by: Board of Supervisors, 9 to 2
         supporters: Mayor Daniel Lurie, as part of the "Clean Up City Hall" package with D, E, and F; GrowSF
         opponents: Coalition on Homelessness
+        position: yes
+        why: >
+          Some history. In 2024 there were two competing commission reform measures: Prop D, which would
+          have capped the city at 65 commissions outright, and Peskin's Prop E, which created a task force
+          to study the problem instead. I voted for D and called E feckless. D lost, E won, and credit
+          where it's due, the task force did its job. It produced the first complete inventory of every
+          commission in the city, which nobody had ever bothered to make, and recommended a long list of
+          cuts and mergers. Prop A is the Board of Supervisors acting on those recommendations. It takes
+          the charter from 55 commissions to 38, moving nine into the Municipal Code where they can be
+          changed by ordinance instead of a ballot measure, and eliminating or merging eight more. The
+          Board adopted a narrower version than the task force wanted, so this is less than D would have
+          done, but it's real progress and it came out of a process that I didn't think would deliver.
+          Vote Yes.
       - measure: Proposition B
         title: Municipal finance corporation and public bank
         kind: measure
@@ -122,6 +196,7 @@ sections:
         placed_by: Board of Supervisors, 9 to 2
         supporters: SF Public Bank Coalition, San Francisco Foundation, SF Labor Council
         opponents: GrowSF and individual opponents
+        position: no
       - measure: Proposition C
         title: Housing Trust Fund contributions
         kind: measure
@@ -130,6 +205,7 @@ sections:
         placed_by: Board of Supervisors, 11 to 0
         supporters: Non-Profit Housing Association of Northern California, San Franciscans for Social Housing, SF Democratic Party, GrowSF
         opponents: SF Republican Party
+        position: yes
       - measure: Proposition D
         title: Changes to the ballot measure process
         kind: measure
@@ -138,6 +214,7 @@ sections:
         placed_by: Signature petition, sponsored by Mayor Lurie
         supporters: Mayor Daniel Lurie, SF Democratic Party, Teamsters Local 665, Gov. Gavin Newsom, GrowSF
         opponents: SF Labor Council, Senior and Disability Action, United Educators of SF, SF Tenants Union, Indivisible SF
+        position: yes
       - measure: Proposition E
         title: City Administrator authority and contracting
         kind: measure
@@ -146,6 +223,7 @@ sections:
         placed_by: Signature petition, sponsored by Mayor Lurie
         supporters: Mayor Daniel Lurie, SF Democratic Party, Firefighters Local 798, SF Building Trades, GrowSF
         opponents: SF Labor Council and allied groups
+        position: yes
       - measure: Proposition F
         title: Executive branch management
         kind: measure
@@ -154,6 +232,7 @@ sections:
         placed_by: Signature petition, sponsored by Mayor Lurie
         supporters: Mayor Daniel Lurie, SF Democratic Party, SPUR, SF Chamber of Commerce, Firefighters Local 798, SEIU 87, GrowSF
         opponents: Small Business Forward, DSA SF, SF Labor Council
+        position: yes
       - measure: Proposition G
         title: Private vehicles on the Upper Great Highway
         kind: measure
@@ -162,6 +241,8 @@ sections:
         placed_by: Signature petition
         supporters: Chinese American Democratic Club, SF Taxpayers Association, Richmond District Democratic Club, Supervisor Alan Wong
         opponents: Sierra Club, SPUR, Surfrider SF, Outer Sunset Neighbors, Scott Wiener, GrowSF
+        position: no
+        why: Puts cars back on the Great Highway. Cars are still bad.
       - measure: Proposition H
         title: Parcel tax for Muni operations
         kind: measure
@@ -170,6 +251,8 @@ sections:
         placed_by: Signature petition
         supporters: SF Democratic Party, SF Labor Council, SF Chamber of Commerce, SF Tenants Union, Seamless Bay Area, GrowSF
         opponents: SF Republican Party, Business League
+        position: yes
+        why: Raises property taxes to fund public transit. My two favorite things.
       - measure: Proposition I
         title: Transfer tax dedication for affordable housing
         kind: measure
@@ -178,6 +261,12 @@ sections:
         placed_by: Signature petition, backed by DSA SF and Dean Preston
         supporters: Affordable Housing Alliance, SF Tenants Union, SEIU 1021, Small Business Forward, DSA SF
         opponents: SF Taxpayers Association, SF Building and Construction Trades Council, GrowSF
+        position: no
+        why: >
+          Every year the progressive bloc of the BoS comes up with new and inventive ways to siphon money from the city budget into their own pet projects and NGOs. It's really quite impressive.
+          Despite the confusing wording, this measure does not raise taxes or create any new revenue streams for the city.
+          It simply diverts existing revenue from the general fund to a random list of preferred housing programs. It also strips future city governments of the capacity to reallocate this money in the future.
+          In general, strict revenue earmarking is a bad idea as the needs of the city vary over time, and you want to give future city governments the flexibility to allocate resources as they see fit. Vote No.
       - measure: Proposition J
         title: End the foreclosure exemption for the transfer tax
         kind: measure
@@ -186,15 +275,6 @@ sections:
         placed_by: Board of Supervisors, 10 to 0
         supporters: Mayor Daniel Lurie, SF Democratic Party, SEIU 1021, SEIU 2015, GrowSF
         opponents: SF Taxpayers Association
-
-  - name: Regional Measures
-    intro: Appears on the ballot in San Francisco, Alameda, Contra Costa, San Mateo, and Santa Clara counties and is counted across all five.
-    contests:
-      - measure: Regional Measure RTM
-        title: Regional transit sales tax
-        kind: measure
-        summary: Enacts a 14-year sales tax of 1% in San Francisco and 0.5% in Alameda, Contra Costa, San Mateo, and Santa Clara counties, raising about $980 million a year, mainly to prevent service cuts at BART, Muni, Caltrain, AC Transit, VTA, and SamTrans.
-        threshold: "50%+1 across all five counties combined"
-        placed_by: Multi-county signature petition under SB 63
-        supporters: Connect Bay Area Transit coalition, Scott Wiener, Jesse Arreguín, SPUR, Seamless Bay Area, GrowSF
-        opponents: Committee for Affordable Bay Area Transit, Contra Costa Taxpayers Association
+        position: yes
+        why: >
+          This measure closes a loophole in the transfer tax that allows banks to avoid paying the tax when they take ownership of a property in foreclosure. This is a common-sense reform that ensures that banks pay their fair share and that the city receives the revenue it needs to fund essential services. Vote Yes.

@@ -1,0 +1,19 @@
+name: The Bay Area
+intro: >
+  One measure appears on the ballot in all five counties covered by this guide and is counted as a single
+  tally across San Francisco, Alameda, Contra Costa, San Mateo, and Santa Clara counties.
+sections:
+  - name: Regional Measures
+    contests:
+      - measure: Regional Measure RTM
+        title: Regional transit sales tax
+        kind: measure
+        summary: Enacts a 14-year sales tax of 1% in San Francisco and 0.5% in Alameda, Contra Costa, San Mateo, and Santa Clara counties, raising about $980 million a year, mainly to prevent service cuts at BART, Muni, Caltrain, AC Transit, VTA, and SamTrans.
+        threshold: "50%+1 across all five counties combined"
+        placed_by: Multi-county signature petition under SB 63
+        supporters: Connect Bay Area Transit coalition, Scott Wiener, Jesse Arreguín, Nancy Pelosi, SPUR, Seamless Bay Area, Transform, SEIU 1021, the transit agencies, GrowSF
+        opponents: Committee for Affordable Bay Area Transit, Contra Costa Taxpayers Association, Debora Allen, Steve Glazer, Quentin Kopp, Mercury News and Daily Post editorial boards
+        position: yes
+        note: >
+          Each county's share goes to its own agencies. San Francisco's goes mostly to Muni and BART, Alameda's
+          about 65% to BART, Santa Clara's mostly to VTA and Caltrain, and San Mateo's to Caltrain and SamTrans.

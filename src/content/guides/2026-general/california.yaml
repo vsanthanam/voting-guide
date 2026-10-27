@@ -13,7 +13,7 @@ sections:
         avoid:
           - { name: Steve Hilton, party: R }
         why: >
-          Becerra is an extremely mediocre politician who won the nomination basically by accident. I do not have high hopes for to be anything other than an average governor. Hilton is batshit crazy tho. 
+          Becerra is an extremely mediocre politician who won the nomination basically by accident. I do not have high hopes for him to be anything other than an average governor. Hilton is batshit crazy tho. 
       - office: Lieutenant Governor
         kind: single
         candidates:
@@ -63,12 +63,14 @@ sections:
         candidates:
           - { name: Richard Barrera }
           - { name: Sonja Shaw }
+        picks: []
       - office: Board of Equalization, District 2
         kind: single
         note: District 2 is the coastal district from Del Norte to Ventura and covers the whole Bay Area.
         candidates:
           - { name: Sally J. Lieber, party: D, incumbent: true }
           - { name: John Pimentel, party: D }
+        picks: []
 
   - name: California State Assembly
     intro: Only even-numbered State Senate districts are up in 2026, so Senate districts 7, 11, and 13 (which also covers San Mateo) are not on this ballot.
@@ -133,6 +135,9 @@ sections:
         candidates:
           - { name: Kelli M. Evans, note: Associate Justice }
           - { name: Joshua Groban, note: Associate Justice }
+        decisions:
+          - { name: Kelli M. Evans, retain: yes }
+          - { name: Joshua Groban, retain: yes }
       - office: Court of Appeal, First District
         area: San Francisco, Oakland, and San Mateo
         kind: retention
@@ -149,12 +154,27 @@ sections:
           - { name: Chou }
           - { name: Burns }
         verify: true
+        decisions:
+          - { name: Smiley, retain: yes }
+          - { name: Banke, retain: yes }
+          - { name: Langhorne Wilson, retain: yes }
+          - { name: Stewart, retain: yes }
+          - { name: Desautels, retain: yes }
+          - { name: Petrou, retain: yes }
+          - { name: Rodriguez, retain: yes }
+          - { name: Brown, retain: yes }
+          - { name: Simons, retain: yes }
+          - { name: Chou, retain: yes }
+          - { name: Burns, retain: yes }
       - office: Court of Appeal, Sixth District
         area: Palo Alto
         kind: retention
         candidates:
           - { name: Daniel H. Bromberg }
           - { name: Charles E. Wilson II }
+        decisions:
+          - { name: Daniel H. Bromberg, retain: yes }
+          - { name: Charles E. Wilson II, retain: yes }
 
   - name: California Ballot Propositions
     contests:
@@ -166,6 +186,7 @@ sections:
         supporters: U.S. Vets, California Federation of Teachers, Habitat for Humanity California, carpenters' councils, Airbnb, Meta
         opponents: No official opposition argument was filed.
         position: yes
+        why: Borrows money to build housing, especially the kind of housing that is difficult to finance privately.
       - measure: Proposition 2
         title: Larger rainy day fund
         kind: measure
@@ -174,6 +195,7 @@ sections:
         supporters: Gov. Gavin Newsom, Xavier Becerra, California Professional Firefighters, LA Chamber of Commerce
         opponents: Asm. David Tangipa and legislative Republicans, who argue surpluses should go back to taxpayers
         position: yes
+        why: Makes the state save more in good years. California's budget is boom and bust, and this helps smooth it out.
       - measure: Proposition 3
         title: Make the high-income tax surcharge permanent
         kind: measure
@@ -182,6 +204,7 @@ sections:
         supporters: California Teachers Association, California State PTA, Planned Parenthood Affiliates of California
         opponents: California Taxpayers Association, Family Business Association of California, California Hispanic Chambers of Commerce
         position: yes
+        why: Keeps the existing tax on income over $360k that pays for schools and health care. It's been in place since 2012 and should not be allowed to expire.
       - measure: Proposition 4
         title: Allow public campaign financing
         kind: measure
@@ -191,15 +214,16 @@ sections:
         opponents: California Taxpayers Association, Howard Jarvis Taxpayers Association
         position: no
         why: >
-          I'm not opposed to public campaign financing. San Francisco has run a program since 2000 and the sky
-          hasn't fallen. The problem with Prop 4 is that it doesn't actually establish anything. It just repeals
+          There is nothing wrong with publicly financing elections -- there is successful precedent for this in countries all over the world, and 
+          San Francisco has run a program since 2000 with unremarkable results.
+          The issue with this measure is its vagueness. It doesn't actually establish anything. It just repeals
           the 1988 ban and leaves every design question for later: whether participating candidates have to
           give up private money, how many candidates can qualify, how much they can draw, and where the money
           comes from. Voters would be signing off on an idea with no terms attached, and the terms are what
           matter. A public financing program that still lets candidates take special interest money alongside
-          public money is worse than no program at all. California has rejected this twice before, in 2000 and
-          2010, and the Legislature's answer was to come back with something even vaguer. Bring back a real
-          proposal with a real program in it and I'll vote for it.
+          public money is not necessarily an improvement and can even be worse by some measures.
+          California has rejected this twice before, in 2000 and 2010, and the Legislature's answer was to come back with something even vaguer.
+          Bring back a real proposal with a real program in it and I'll vote for it, or better yet, let the legislature pass something substantive instead.
       - measure: Proposition 5
         title: Change the statewide recall process
         kind: measure
@@ -211,12 +235,13 @@ sections:
         why: >
           Recalls are usually anti-democratic. They let a motivated minority force a do-over of an election
           the rest of us already held, at enormous cost, on a timeline the recall backers get to choose.
-          California's version is especially bad because of the replacement question: a governor can be
+          California's implementation of the governor recall system is especially terrible: a governor can be
           removed by 50% plus one and then replaced by whoever leads a field of dozens with a fraction of
-          that support. That is how we nearly handed the state to a radio host in 2021. Prop 5 fixes the
-          worst part. If a recall succeeds, the office is filled by a special election or an appointment,
-          the same way any other vacancy is, instead of by a simultaneous free-for-all. I'd rather raise the
-          bar for recalls altogether, but this is a sane step and it costs nothing. Vote yes.
+          that support. That is how we nearly handed the state to a radio host in 2021. This measure fixes the
+          worst part of that system: If a recall succeeds, the office is filled by a special election or an appointment,
+          the same way any other vacancy is, instead of by a simultaneous free-for-all.
+          This is an improvement, but the better solution is to eliminate recalls entirely. I look forward to that day.
+          Until then, vote yes.
       - measure: Proposition 37
         title: State loans for middle-income homebuyers
         kind: measure
@@ -243,18 +268,19 @@ sections:
         opponents: League of Women Voters of California, GrowSF
         position: no
         why: >
-          Read the fine print. Prop 38 borrows $8.4 billion, which costs the state $500 to $600 million a
-          year for twenty years, and hands half of it, about $4.2 billion, to a single nonprofit research
+          The very existence of this proposition is an indictment of California's ballot initiative system.
+          Prop 38 borrows $8.4 billion, which costs the state $500 to $600 million in debt servicing fees per year for twenty years,
+          and hands literally half of it, about $4.2 billion, to a single nonprofit research
           institute. The measure was written, qualified, and almost entirely bankrolled by Gary Michelson,
-          the billionaire who co-founded that same institute. The eligibility rules are drafted so narrowly
-          that UCLA itself confirmed only his institute qualifies. He has put more than $60 million into the
+          the billionaire who co-founded that same institute. The eligibility rules are intentionally drafted so narrowly
+          that only his institute qualifies for the money. Michelson has put more than $60 million into the
           campaign. There is essentially no money on the other side, because there is no constituency
-          against immunology research. That's the point: nobody is going to run ads against curing cancer,
-          so the only check on a ballot measure like this is voters noticing what it actually does. And
-          somehow the California Democratic Party endorsed it. The party that will tell you with a straight
-          face that billionaires have too much influence over our politics looked at a billionaire buying
-          himself a $4 billion earmark and said yes. It's fuckign embarassing. Research funding should go through the
-          budget and through competitive grants, not through an initiative that names its own beneficiary.
+          against immunology research. This is part of the strategy: nobody is going to run ads against curing cancer,
+          so the only check on a ballot measure like this is voters noticing what it actually does. 
+          To make matters worse, Michelson managed to get the CA Democratic Party to endorse this measure.
+          Think about that for a second. The party that will tell you with a straight face that billionaires have too much influence over our politics
+          is endorsing a law that lets a random rich guy unilaterally loot the state treasury.
+          It's fucking embarrassing. Research funding should go through the budget and through competitive grants, not through a ballot initiative that names its own beneficiary.
           If you want the state to fund immunotherapy research, this is the most expensive and least
           accountable way to do it. Vote no.
       - measure: Proposition 39
@@ -266,39 +292,37 @@ sections:
         opponents: ACLU California Action, Common Cause, League of Women Voters of California, California Democratic Party, SEIU 2015
         position: no
         why: >
-          Prop 39 is a solution in search of a problem. You already have to prove who you are to vote in
-          California. Registering requires a driver's license number or the last four digits of your Social
-          Security number, which the state checks against the DMV and the Social Security Administration.
-          First-time voters who registered without that are already required by federal law to show ID.
-          Every mail ballot is signature-verified against your registration. Voting as a non-citizen is
-          already a felony, and the handful of cases that turn up each cycle get prosecuted. Prop 39 doesn't
-          add a check that doesn't exist. It replaces a system that works with one that adds friction at
-          the polling place and strips people who moved, lost a wallet, or never drove of a vote they're
-          entitled to. The bigger problem is what a constitutional ID requirement does after election day.
-          Every close race becomes an invitation to litigate: which IDs count, whether a county verified
-          "citizenship" correctly, whether ballots from a precinct should be thrown out over paperwork. We
-          have watched that playbook run in other states for a decade and it is not an accident that the
-          people funding this measure are the same people who fund that playbook. This is a lawfare
-          machine dressed up as a security measure. Vote no.
+          California already checks who you are when you vote. You need a driver's license number or
+          the last four of your social security number to register, and the state verifies it against the
+          DMV. Mail ballots get signature-matched. Non-citizens voting is a felony and it basically never
+          happens. So Prop 39 doesn't add any protection that doesn't already exist, it just adds a step at
+          the polls that will mostly trip up people who moved recently, lost their wallet, or don't drive.
+          The real reason to vote no is what happens *after* election day. Once voter ID is in the state
+          constitution, every close race turns into a lawsuit about whether some county checked IDs
+          correctly or whether a batch of ballots should get tossed. That's the whole point. The guy
+          bankrolling this measure (Richard Uihlein) funds the exact same playbook in other states, and
+          it's not because he's worried about election security. Vote No.
       - measure: Proposition 40
         title: One-time billionaire wealth tax
         kind: measure
         summary: Imposes a one-time 5% tax on the net worth of California billionaires to fund health care, education, and food assistance.
         placed_by: Initiative
         supporters: SEIU-United Healthcare Workers West, California Democratic Party, Teamsters California
-        opponents: Building a Better California, California Taxpayers Association, California Primary Care Association, Planned Parenthood; both Becerra and Hilton oppose
+        opponents: California Teachers Association, California Professional Firefighters, California Primary Care Association, Planned Parenthood, Building a Better California, California Taxpayers Association; both Becerra and Hilton oppose
         position: no
         why: >
           The thing to know about Prop 40 is that it was never really meant to pass. SEIU-UHW, the union
-          behind it, routinely qualifies ballot measures as bargaining chips: the three dialysis initiatives
-          from 2018 to 2022 were the same move. In June the union offered to withdraw this one if Newsom
+          behind it, routinely qualifies ballot measures as bargaining chips.
+          You might remember these guys from their series of random dialysis initiatives from the past decade.
+          In June the union offered to withdraw this one if Newsom
           backed a smaller 2% tax through the Legislature. He declined, the deadline passed, and the
-          bargaining chip ended up on your ballot. That's also why the groups you'd expect to support a
-          health care tax, including the Medical Association, the community clinics, and Planned
-          Parenthood, are against it: they weren't consulted. On the merits, a one-time wealth tax is a
-          poor fit for a permanent funding gap, and wealth is the easiest tax base to move, which is why the
-          state's own estimate comes in well under the union's and expects some ongoing income tax loss.
-          Income, property, and land value taxes do the same job with far less leakage. Vote no.
+          bargaining chip ended up on your ballot.
+          One of the ways you can tell this is the case is that the folks opposed to this bill are not just your usual pro-business groups (they've spent heavily on competing measures 41 and 42, see below).
+          The California Teachers Association, the California Professional Firefighters, the California Primary Care Association, and even Planned Parenthood are all against it, too.
+          Despite being theoretical beneficiaries of a supposed health care tax, they weren't consulted, and understand that the passage of this measure likely means less revenue for them, not more.
+          On the merits, a one-time wealth tax is a poor fit for a permanent funding gap. Wealth is the easiest tax base to move, which is why the state's own estimate comes in well under the union's and expects some ongoing income tax loss.
+          Income, property, and land value taxes do the same job with far less leakage. It will almost certainly lose to a judicial review challenge.
+          If you are truly concerned with creating a more equitable tax system, focus on increasing property taxes and capital gains taxes, as well as closing loopholes that impact income classification. Vote no.
       - measure: Proposition 41
         title: Audits and spending-limit rules for new special taxes
         kind: measure
@@ -306,6 +330,19 @@ sections:
         placed_by: Initiative
         supporters: Building a Better California, California Taxpayers Association, CalCPA
         opponents: SEIU-United Healthcare Workers West
+        position: no
+        why: >
+          Prop 41 is one of two measures the business lobby put on the ballot to cancel out Prop 40 (if
+          either gets more votes, Prop 40 dies). I've already explained why 40 is a bad idea, but that does not automatically mean its counter measures are good ideas either.
+          This measure strengthens the Gann Limit, a truly horrific law that has been a major drag on the state's ability to fund itself for decades.
+          In 1979 voters capped how much the state is allowed to spend each year, growing only with population and inflation,
+          and anything collected above the cap has to be refunded or split off to schools. That sounds
+          fine until you realize it means the state can't bank a windfall, can't build a reserve, and can't
+          catch up on infrastructure in a good year even when it has the money. It's a big reason
+          California's budget swings from surplus to crisis every few years. Until now, voters could at
+          least approve a new tax and exempt it from the Gann Limit. Prop 41 makes this considerably harder to do.
+          Nearly all modern policy people consider the Gann Limit to be tantamount to economic malpractice.
+          The idea that we'd consider making it stronger is just completely insane. Vote No.
       - measure: Proposition 42
         title: Ban new state wealth and retroactive taxes
         kind: measure
@@ -313,6 +350,15 @@ sections:
         placed_by: Initiative
         supporters: Building a Better California, California Professional Firefighters, State Building and Construction Trades Council
         opponents: SEIU-United Healthcare Workers West
+        position: yes
+        why: >
+          This is the other anti-Prop 40 measure. It does two things: bans new taxes on simply owning stuff (wealth taxes), which I covered under
+          Prop 40, and bans retroactive taxes. The retroactive part is the one worth caring about. Good
+          tax policy is predictable: you set the rules, people plan around them, and the revenue shows up
+          on schedule. A retroactive tax breaks that reliability.
+          Revenue gets locked up in litigation, and governments cannot effectively budget or plan.
+          Instead of debating what the tax rate is, you end up with much dumber debates about the "true" value of a given piece of property or when the taxable event occurred.
+          There is a reason these kinds of taxes all but disappeared in the 20th century. They do a poor job of raising revenue for the state. Vote Yes.
       - measure: Proposition 43
         title: Two-thirds vote for citizen-initiative local taxes
         kind: measure
@@ -320,6 +366,18 @@ sections:
         placed_by: Legislature
         supporters: California Business Roundtable, California Taxpayers Association
         opponents: California Professional Firefighters, California Federation of Teachers, SEIU California, building trades
+        position: none
+        why: >
+          Local special taxes (ones earmarked for a specific purpose) normally need a
+          two-thirds vote. In 2017 the state Supreme Court ruled in the Upland case that this only applies
+          when the city council puts the tax on the ballot. If a citizen initiative does it, a simple
+          majority is enough. Since then the move has been for whichever interest group wants money to
+          gather signatures, write the tax so it funds their thing, and skip the council entirely. That's
+          genuinely bad governance: the tax is drafted by its beneficiaries, nobody weighs it against
+          other priorities, and it's locked in forever. Prop 43 closes the loophole by making initiatives
+          clear two-thirds too. The problem is that two-thirds is a brutal threshold, and most of the
+          things I actually want cities to fund (transit, housing, Muni) only pass because of the loophole.
+          I don't love either outcome, so I'm not taking a position. Vote your conscience.
       - measure: Proposition 44
         title: Community clinic spending requirement
         kind: measure
@@ -327,6 +385,19 @@ sections:
         placed_by: Initiative
         supporters: SEIU-United Healthcare Workers West
         opponents: California Medical Association, California Primary Care Association, California Hospital Association, California Democratic Party
+        position: no
+        why: >
+          From the people who brought us Prop 40 comes another attempt to use the initiative process for the benefit of a single interest group.
+          SEIU-UHW is the only funder, and the measure is the leverage they use when they want clinic operators at the bargaining table.
+          Who opposes this measure? The community clinics themselves, through the California Primary
+          Care Association, plus the pediatricians, the Medical Association, and the hospitals. Nobody who
+          actually runs a clinic thinks a hard 90% rule makes sense, because the stuff that doesn't count
+          as "direct patient care" are things like the billing staff that gets them paid by Medi-Cal, the
+          electronic records system, and the cost of maintaining the facility itself.
+          These clinics already run on razor thin margins serving mostly low-income
+          people, and forcing them to hit an arbitrary ratio or face penalties means fewer clinics, not
+          better ones. If the union wants a contract, it should go negotiate one. It's not the state's job to pick up the slack. Vote No.
+          **_In general, a good rule of thumb is that if a ballot measure is primarily sponsored by SEIU-UHW, you should probably kill it with fire._**
       - measure: Proposition 45
         title: Narrow CEQA review for certain projects
         kind: measure
@@ -334,3 +405,6 @@ sections:
         placed_by: Initiative
         supporters: California Chamber of Commerce, California Building Industry Association, California Association of Realtors, PG&E
         opponents: Sierra Club California, California Environmental Voters, California Labor Federation, State Building Trades
+        position: yes
+        why: >
+          **Weakens CEQA. CEQA is bad.**

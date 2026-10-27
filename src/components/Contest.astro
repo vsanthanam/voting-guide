@@ -33,12 +33,12 @@ const search = [title, c.title, c.area, ...people.map((p) => p.name)].filter(Boo
     <h4><a href={`#${id}`}>{title}</a></h4>
     {c.title && <p class="subtitle">{c.title}</p>}
     <p class="kicker">
-      {c.area && <span>{c.area}</span>}
-      {c.kind === 'ranked' && <span>Ranked choice</span>}
-      {c.kind === 'multi' && c.seats && <span>Vote for up to {c.seats}</span>}
-      {c.kind === 'retention' && <span>Yes or no on each justice</span>}
-      {c.threshold && <span>Needs {c.threshold}</span>}
-      {c.verify && <span class="verify">Candidate list not yet verified</span>}
+      {c.area && <span class="area">{c.area}</span>}
+      {c.kind === 'ranked' && <span class="tag">Ranked choice</span>}
+      {c.kind === 'multi' && c.seats && <span class="tag">Vote for up to {c.seats}</span>}
+      {c.kind === 'retention' && <span class="tag">Yes or no on each justice</span>}
+      {c.threshold && <span class="tag">Needs {c.threshold}</span>}
+      {c.verify && <span class="tag verify">Candidate list not yet verified</span>}
     </p>
   </header>
 
@@ -224,16 +224,31 @@ const search = [title, c.title, c.area, ...people.map((p) => p.name)].filter(Boo
   .kicker {
     display: flex;
     flex-wrap: wrap;
-    gap: 2px 14px;
+    align-items: center;
+    gap: 4px 8px;
     font-size: 13px;
     color: var(--text-3);
-    margin-top: 2px;
+    margin-top: 4px;
   }
   .kicker:empty {
     display: none;
   }
-  .verify {
+  .kicker .area {
+    margin-right: 4px;
+  }
+  .kicker .tag {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-2);
+    background: var(--gray-tint);
+    border-radius: 6px;
+    padding: 1px 7px;
+    line-height: 18px;
+    white-space: nowrap;
+  }
+  .kicker .verify {
     color: var(--orange);
+    background: var(--orange-tint);
   }
 
   .ballot {

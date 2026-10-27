@@ -9,8 +9,8 @@ const { person, struck = false } = Astro.props;
 
 <span class:list={['person', { struck }]}>
   <span class="name">{person.name}</span>
-  {person.party && <span class="party">{person.party}</span>}
-  {person.incumbent && <span class="meta">Incumbent</span>}
+  {person.party && <span class:list={['tag', 'party', `party-${person.party.toLowerCase()}`]}>{person.party}</span>}
+  {person.incumbent && <span class="tag incumbent">Incumbent</span>}
   {person.note && <span class="meta">{person.note}</span>}
 </span>
 
@@ -26,7 +26,7 @@ const { person, struck = false } = Astro.props;
     color: var(--text);
     font-weight: 500;
   }
-  .party {
+  .tag {
     font-size: 12px;
     font-weight: 600;
     color: var(--text-2);
@@ -36,6 +36,37 @@ const { person, struck = false } = Astro.props;
     line-height: 16px;
     position: relative;
     top: -1px;
+    white-space: nowrap;
+  }
+  /* Incumbent inverts the page: ink on paper in light mode, paper on ink in dark. */
+  .incumbent {
+    color: var(--bg);
+    background: var(--text);
+  }
+  /* Party colors follow Wikipedia's political party data; text is black or white by contrast. */
+  .party-d {
+    color: #fff;
+    background: #0044c9;
+  }
+  .party-r {
+    color: #fff;
+    background: #e81b23;
+  }
+  .party-g {
+    color: #000;
+    background: #17aa5c;
+  }
+  .party-lib {
+    color: #000;
+    background: #fed000;
+  }
+  .party-pf {
+    color: #000;
+    background: #8de04a; /* Wikipedia uses pure lime; toned down so it reads on white */
+  }
+  .party-aip {
+    color: #fff;
+    background: #800080;
   }
   .meta {
     font-size: 14px;

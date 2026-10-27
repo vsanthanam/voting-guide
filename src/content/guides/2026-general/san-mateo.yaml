@@ -12,18 +12,24 @@ sections:
         kind: single
         candidates:
           - { name: Lisa Diaz Nash, incumbent: true }
-          - { name: Taso Zografos, note: business executive, author of the argument against Measure H }
+          - { name: Taso Zografos, note: "business executive, author of the argument against Measure H" }
+        picks:
+          - { name: Lisa Diaz Nash }
       - office: San Mateo City Council, District 3
         kind: single
         candidates:
           - { name: Robert G. Newsom Jr., incumbent: true }
           - { name: Seema Patel, note: planning commissioner }
+        picks:
+          - { name: Robert G. Newsom Jr. }
       - office: San Mateo City Council, District 5
         kind: single
         candidates:
           - { name: Adam Loraine, incumbent: true, note: current mayor }
           - { name: Dave Johnson, note: pastor and coach }
           - { name: Dana Yates Sahae, note: community advocate }
+        picks:
+          - { name: Adam Loraine }
 
   - name: San Mateo Union High School District
     intro: >
@@ -40,13 +46,17 @@ sections:
         candidates:
           - { name: Jennifer Jacobson, incumbent: true }
           - { name: Diana Harris, note: teacher in the San Mateo-Foster City district }
+        picks:
+          - { name: Jennifer Jacobson }
       - office: San Mateo Union High School District, Trustee Area 5
         kind: single
         verify: true
         note: Open seat. Robert Griffin did not run. Confirm whether your precinct is in Area 5.
         candidates:
           - { name: Alison Proctor, note: current San Mateo-Foster City trustee }
-          - { name: Kimo Rosenbaum, note: parent, software engineer }
+          - { name: Kimo Rosenbaum, note: "parent, software engineer" }
+        picks: []
+        
 
   - name: San Mateo Ballot Measures
     intro: >
@@ -62,6 +72,7 @@ sections:
         supporters: Former police chief Susan Manheimer, former councilmember Richard Hedges, Parks and Recreation chair Sabrina Ocampo, San Mateo Daily Journal
         opponents: Council candidate Taso Zografos and two co-signers; no organized committee
         note: The city projects a structural deficit of about $17 million.
+        position: yes
       - measure: Measure F
         title: City charter cleanup
         kind: measure
@@ -70,6 +81,7 @@ sections:
         placed_by: City Council
         supporters: Councilmember Danielle Cwirko-Godycki, Deputy Mayor Nicole Fernandez, former councilmember Richard Hedges, San Mateo Daily Journal
         opponents: No argument against was filed.
+        position: yes
       - measure: Measure W
         title: San Mateo-Foster City schools bond, $498 million
         kind: measure
@@ -78,6 +90,7 @@ sections:
         placed_by: San Mateo-Foster City School District board
         supporters: SMFC Education Foundation, PTA Council, Supervisor Noelia Corzo, Councilmember Rob Newsom Jr., San Mateo Daily Journal
         opponents: Thomas Weissmiller and co-signers, who cite the existing Measures T and X on the same tax bill
+        position: yes
       - measure: Measure V
         title: Community college district bond, $848 million
         kind: measure
@@ -86,6 +99,7 @@ sections:
         placed_by: San Mateo County Community College District board
         supporters: SMCCD Federation of Teachers, county firefighters, San Mateo County Central Labor Council, Silicon Valley Community Foundation
         opponents: Silicon Valley Taxpayers Association and co-signers, who note it is the district's fifth bond since 2001 and cite the Galatolo bond scandal
+        position: none
       - measure: Measure U
         title: Independent redistricting commission
         kind: measure
@@ -94,6 +108,7 @@ sections:
         placed_by: Board of Supervisors
         supporters: Supervisors Jackie Speier, Noelia Corzo, and Lisa Gauthier, League of Women Voters chapters
         opponents: No argument against was filed.
+        position: yes
       - measure: Measure J
         title: Time to fill county vacancies
         kind: measure
@@ -102,6 +117,7 @@ sections:
         placed_by: Board of Supervisors
         supporters: Board of Supervisors and the Charter Review Committee
         opponents: No argument against was filed.
+        position: none
       - measure: Measure L
         title: Charter preamble on extreme weather
         kind: measure
@@ -110,6 +126,7 @@ sections:
         placed_by: Board of Supervisors
         supporters: Board of Supervisors and the Charter Review Committee
         opponents: No argument against was filed.
+        position: yes
       - measure: Measure AA
         title: Charter preamble affirming rights
         kind: measure
@@ -118,15 +135,4 @@ sections:
         placed_by: Board of Supervisors
         supporters: Board of Supervisors and the Charter Review Committee
         opponents: No argument against was filed.
-
-  - name: Regional Measures
-    intro: San Mateo County is one of the five counties in the regional transit measure. It is counted across all five. The county's share goes mainly to Caltrain and SamTrans.
-    contests:
-      - measure: Regional Measure RTM
-        title: Regional transit sales tax
-        kind: measure
-        summary: Enacts a 14-year 0.5% sales tax in San Mateo County (1% in San Francisco) as part of a five-county measure raising about $980 million a year for BART, Caltrain, Muni, AC Transit, VTA, and SamTrans operations.
-        threshold: "50%+1 across all five counties combined"
-        placed_by: Multi-county signature petition under SB 63
-        supporters: Nancy Pelosi, Scott Wiener, Jesse Arreguín, SEIU 1021, Transform, Seamless Bay Area, transit agencies
-        opponents: Committee for Affordable Bay Area Transit, San Francisco Taxpayers Association, Debora Allen, Steve Glazer, Quentin Kopp
+        position: yes
