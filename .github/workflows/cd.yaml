@@ -19,9 +19,9 @@ jobs:
       - uses: jdx/mise-action@v5
         with:
           cache: true
-      - run: npm ci --no-audit --no-fund
-      - run: npm run check
-      - run: npm run build
+      - run: bun install --frozen-lockfile
+      - run: bun run check
+      - run: bun run build
         env:
           SITE_URL: https://varunvotes.fyi
       - uses: actions/upload-artifact@v7
@@ -39,7 +39,7 @@ jobs:
       - uses: jdx/mise-action@v5
         with:
           cache: true
-      - run: npm ci --no-audit --no-fund
+      - run: bun install --frozen-lockfile
       - uses: actions/download-artifact@v8
         with:
           name: dist
@@ -48,4 +48,5 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          packageManager: bun
           command: deploy

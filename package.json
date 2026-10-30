@@ -2,20 +2,17 @@
   "name": "voting-guide",
   "type": "module",
   "version": "0.0.1",
-  "engines": {
-    "node": ">=22.23.4"
-  },
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
+    "dev": "bun --bun astro dev",
+    "build": "bun --bun astro build",
+    "preview": "bun --bun astro preview",
     "astro": "astro",
-    "deploy": "SITE_URL=https://varunvotes.fyi astro build && wrangler deploy",
-    "og": "node scripts/og.mjs",
-    "lint": "eslint .",
-    "format": "prettier --write .",
-    "format:check": "prettier --check .",
-    "check": "npm run lint && npm run format:check"
+    "deploy": "SITE_URL=https://varunvotes.fyi bun --bun astro build && bun --bun wrangler deploy",
+    "og": "bun scripts/og.mjs",
+    "lint": "bun --bun eslint .",
+    "format": "bun --bun prettier --write .",
+    "format:check": "bun --bun prettier --check .",
+    "check": "bun run lint && bun run format:check"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.3.0",
