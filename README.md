@@ -9,11 +9,11 @@ This year, I decided to create a structured format and site generator that allow
 
 ## Setup
 
-The Node version is pinned in `mise.toml` with [mise](https://mise.jdx.dev):
+The Bun version is pinned in `mise.toml` with [mise](https://mise.jdx.dev):
 
 ```
 mise install
-npm ci
+bun install
 ```
 
 ## Linting and formatting
@@ -21,8 +21,8 @@ npm ci
 ESLint and Prettier run in CI. Locally:
 
 ```
-npm run check     # lint + format check
-npm run format    # rewrite files with Prettier
+bun run check     # lint + format check
+bun run format    # rewrite files with Prettier
 ```
 
 Guide YAML under `src/content/` is excluded from Prettier so the hand-written layout is preserved.
@@ -49,14 +49,14 @@ on every push to `main`. Pushes to `main` that pass those checks are deployed au
 To deploy by hand:
 
 ```
-npx wrangler login     # once
-npm run deploy         # builds and uploads dist/
+bun --bun wrangler login     # once
+bun run deploy         # builds and uploads dist/
 ```
 
 Set the production URL so canonical links are right:
 
 ```
-SITE_URL=https://varunvotes.fyi npm run deploy
+SITE_URL=https://varunvotes.fyi bun run deploy
 ```
 
 The custom domain is declared in `wrangler.jsonc` under `routes` with `custom_domain: true`;
@@ -69,5 +69,5 @@ rendered with headless Chrome and committed; regenerate them after adding a guid
 a title:
 
 ```
-npm run og
+bun run og
 ```

@@ -1,5 +1,5 @@
 // Renders Open Graph preview images (1200x630) for the home page and every guide.
-// Uses headless Chrome, so run it locally and commit the PNGs: `npm run og`.
+// Uses headless Chrome, so run it locally and commit the PNGs: `bun run og`.
 import { readdirSync, readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
