@@ -7,10 +7,10 @@
   "assets": {
     "directory": "./dist",
     "not_found_handling": "404-page",
-    "html_handling": "auto-trailing-slash"
+    "html_handling": "auto-trailing-slash",
   },
   "routes": [
     { "pattern": "varunvotes.fyi", "zone_name": "varunvotes.fyi", "custom_domain": true },
-    { "pattern": "www.varunvotes.fyi", "zone_name": "varunvotes.fyi", "custom_domain": true }
-  ]
+    { "pattern": "www.varunvotes.fyi", "zone_name": "varunvotes.fyi", "custom_domain": true },
+  ],
 }

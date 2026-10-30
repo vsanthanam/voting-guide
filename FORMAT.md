@@ -24,11 +24,11 @@ no candidate list fails the build and names the contest.
 
 2. **The answer field is tri-state by presence.**
 
-   | state            | candidate contest | measure / recall | retention        |
-   |------------------|-------------------|------------------|------------------|
-   | not decided yet  | no `picks` key    | no `position` key| no `decisions` key |
-   | no position      | `picks: []`       | `position: none` | `decisions: []`  |
-   | decided          | `picks: [...]`    | `position: yes` / `no` | `decisions: [...]` |
+   | state           | candidate contest | measure / recall       | retention          |
+   | --------------- | ----------------- | ---------------------- | ------------------ |
+   | not decided yet | no `picks` key    | no `position` key      | no `decisions` key |
+   | no position     | `picks: []`       | `position: none`       | `decisions: []`    |
+   | decided         | `picks: [...]`    | `position: yes` / `no` | `decisions: [...]` |
 
    "Not decided yet" is for a draft you're still writing. "No position" is a
    deliberate choice and renders as such.
@@ -65,14 +65,14 @@ sections:
 Each contest is one block on the ballot. The `kind` decides how it renders and
 which answer field it takes.
 
-| kind        | what it is                          | answer field                    |
-|-------------|-------------------------------------|---------------------------------|
-| `single`    | one seat, vote for one              | `picks` (at most one slot)      |
-| `multi`     | several seats, vote for up to N     | `picks` (up to `seats`)         |
-| `ranked`    | ranked choice                       | `picks` in rank order           |
-| `measure`   | yes / no question                   | `position`                      |
-| `recall`    | shall X be recalled, yes / no       | `position`                      |
-| `retention` | retain each justice, yes / no each  | `decisions`                     |
+| kind        | what it is                         | answer field               |
+| ----------- | ---------------------------------- | -------------------------- |
+| `single`    | one seat, vote for one             | `picks` (at most one slot) |
+| `multi`     | several seats, vote for up to N    | `picks` (up to `seats`)    |
+| `ranked`    | ranked choice                      | `picks` in rank order      |
+| `measure`   | yes / no question                  | `position`                 |
+| `recall`    | shall X be recalled, yes / no      | `position`                 |
+| `retention` | retain each justice, yes / no each | `decisions`                |
 
 ### Candidate contest
 

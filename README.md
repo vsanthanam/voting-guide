@@ -16,10 +16,22 @@ mise install
 npm ci
 ```
 
+## Linting and formatting
+
+ESLint and Prettier run in CI. Locally:
+
+```
+npm run check     # lint + format check
+npm run format    # rewrite files with Prettier
+```
+
+Guide YAML under `src/content/` is excluded from Prettier so the hand-written layout is preserved.
+
 ## Writing a guide
 
 See [FORMAT.md](FORMAT.md).
 TLDR:
+
 - Add a folder under `src/content/guides/`
 - Put a `guide.yaml` in it, and one YAML file per jurisdiction.
 - The build validates the guides for formatting or structure issues.
@@ -30,6 +42,11 @@ and is listed, with an "in progress" banner and a count of undecided items.
 ## Deploying
 
 Hosted on Cloudflare Workers as a static-assets Worker (`wrangler.jsonc`). No server code.
+
+CI (`.github/workflows/cd.yaml`) runs lint, format, and build checks on every pull request and
+on every push to `main`. Pushes to `main` that pass those checks are deployed automatically.
+
+To deploy by hand:
 
 ```
 npx wrangler login     # once

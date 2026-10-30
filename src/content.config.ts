@@ -111,7 +111,8 @@ const contest = z
         if (!names.has(p.name)) err(`${c.kind} "${label}": avoid "${p.name}" is not in \`candidates\``);
       }
       if (c.kind === 'single' && (c.picks?.length ?? 0) > 1) err(`single "${label}": more than one pick`);
-      if (c.kind === 'multi' && c.seats && (c.picks?.length ?? 0) > c.seats) err(`multi "${label}": more picks than seats`);
+      if (c.kind === 'multi' && c.seats && (c.picks?.length ?? 0) > c.seats)
+        err(`multi "${label}": more picks than seats`);
       if (c.kind === 'multi' && !c.seats) err(`multi "${label}": needs \`seats\``);
     }
   });

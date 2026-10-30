@@ -17,12 +17,22 @@ const s = stats(lg);
 const draft = guide.data.status === 'draft';
 ---
 
-<Base title={guide.data.election} description={`${guide.data.election}: picks and reasoning for every race and measure.`} image={`/og/${guide.id}.png`}>
+<Base
+  title={guide.data.election}
+  description={`${guide.data.election}: picks and reasoning for every race and measure.`}
+  image={`/og/${guide.id}.png`}
+>
   <header class="masthead">
     <div class="container">
       <h1>{guide.data.election}</h1>
       <p class="when">{formatDate(guide.data.date)}</p>
-      {draft && <p><span class="label draft">Still being written. {s.open} of {s.contests} items don't have a recommendation yet.</span></p>}
+      {draft && (
+        <p>
+          <span class="label draft">
+            Still being written. {s.open} of {s.contests} items don't have a recommendation yet.
+          </span>
+        </p>
+      )}
       {guide.data.intro && <div class="intro prose" set:html={md(guide.data.intro)} />}
     </div>
   </header>
@@ -31,26 +41,26 @@ const draft = guide.data.status === 'draft';
     <Toc jurisdictions={jurisdictions} />
     <main>
       <Toc jurisdictions={jurisdictions} variant="dock" />
-      {
-        jurisdictions.map((j) => (
-          <section class="jurisdiction" id={slug(j.data.name)}>
-            <h2>{j.data.name}</h2>
-            {j.data.intro && <div class="jurisdiction-intro prose" set:html={md(j.data.intro)} />}
-            {j.data.sections.map((sec) => (
-              <section class="card group" id={slug(j.data.name + ' ' + sec.name)}>
-                <h3 class="card-head">
-                  <a href={`#${slug(j.data.name + ' ' + sec.name)}`}>{sec.name}</a>
-                </h3>
-                {sec.intro && <div class="card-intro" set:html={md(sec.intro)} />}
-                {sec.contests.map((c) => (
-                  <Contest contest={c} jurisdiction={j.data.name} />
-                ))}
-              </section>
-            ))}
-          </section>
-        ))
-      }
-      <p class="no-results hidden" id="no-results">Nothing on this ballot matches.</p>
+      {jurisdictions.map((j) => (
+        <section class="jurisdiction" id={slug(j.data.name)}>
+          <h2>{j.data.name}</h2>
+          {j.data.intro && <div class="jurisdiction-intro prose" set:html={md(j.data.intro)} />}
+          {j.data.sections.map((sec) => (
+            <section class="card group" id={slug(j.data.name + ' ' + sec.name)}>
+              <h3 class="card-head">
+                <a href={`#${slug(j.data.name + ' ' + sec.name)}`}>{sec.name}</a>
+              </h3>
+              {sec.intro && <div class="card-intro" set:html={md(sec.intro)} />}
+              {sec.contests.map((c) => (
+                <Contest contest={c} jurisdiction={j.data.name} />
+              ))}
+            </section>
+          ))}
+        </section>
+      ))}
+      <p class="no-results hidden" id="no-results">
+        Nothing on this ballot matches.
+      </p>
     </main>
   </div>
 </Base>
@@ -72,7 +82,10 @@ const draft = guide.data.status === 'draft';
   };
   const io = new IntersectionObserver(
     (entries) => {
-      for (const e of entries) e.isIntersecting ? visible.add(e.target) : visible.delete(e.target);
+      for (const e of entries) {
+        if (e.isIntersecting) visible.add(e.target);
+        else visible.delete(e.target);
+      }
       update();
     },
     { rootMargin: '-80px 0px -55% 0px' },

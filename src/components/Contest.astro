@@ -1,6 +1,19 @@
 ---
 import type { Contest } from '../lib/guide';
-import { avoided, contestId, contestTitle, isMeasure, isOpen, marks, md, ordinal, rankColumns, retention, rows, status } from '../lib/guide';
+import {
+  avoided,
+  contestId,
+  contestTitle,
+  isMeasure,
+  isOpen,
+  marks,
+  md,
+  ordinal,
+  rankColumns,
+  retention,
+  rows,
+  status,
+} from '../lib/guide';
 import Oval from './Oval.astro';
 import Candidate from './Candidate.astro';
 
@@ -30,7 +43,9 @@ const search = [title, c.title, c.area, ...people.map((p) => p.name)].filter(Boo
 
 <article class:list={['contest', { open }]} id={id} data-search={search}>
   <header class="head">
-    <h4><a href={`#${id}`}>{title}</a></h4>
+    <h4>
+      <a href={`#${id}`}>{title}</a>
+    </h4>
     {c.title && <p class="subtitle">{c.title}</p>}
     <p class="kicker">
       {c.area && <span class="area">{c.area}</span>}
@@ -42,154 +57,150 @@ const search = [title, c.title, c.area, ...people.map((p) => p.name)].filter(Boo
     </p>
   </header>
 
-  {
-    measure && (
-      <div class="ballot measure-ballot">
-        {c.kind === 'recall' && <p class="question">Shall this official be recalled?</p>}
-        <span class="choice">
-          <Oval state={pos === 'yes' ? 'filled' : 'empty'} label={pos === 'yes' ? 'Yes, picked' : 'Yes'} />
-          Yes
-        </span>
-        <span class="choice">
-          <Oval state={pos === 'no' ? 'filled' : 'empty'} label={pos === 'no' ? 'No, picked' : 'No'} />
-          No
-        </span>
-        {pill && <span class:list={['label', pill.kind]}>{pill.text}</span>}
-      </div>
-    )
-  }
+  {measure && (
+    <div class="ballot measure-ballot">
+      {c.kind === 'recall' && <p class="question">Shall this official be recalled?</p>}
+      <span class="choice">
+        <Oval state={pos === 'yes' ? 'filled' : 'empty'} label={pos === 'yes' ? 'Yes, picked' : 'Yes'} />
+        Yes
+      </span>
+      <span class="choice">
+        <Oval state={pos === 'no' ? 'filled' : 'empty'} label={pos === 'no' ? 'No, picked' : 'No'} />
+        No
+      </span>
+      {pill && <span class:list={['label', pill.kind]}>{pill.text}</span>}
+    </div>
+  )}
 
-  {
-    c.kind === 'retention' && (
-      <div class="ballot">
-        <table class="grid">
-          <thead>
+  {c.kind === 'retention' && (
+    <div class="ballot">
+      <table class="grid">
+        <thead>
+          <tr>
+            <th scope="col" class="name-col"></th>
+            <th scope="col">Yes</th>
+            <th scope="col">No</th>
+          </tr>
+        </thead>
+        <tbody>
+          {people.map((p) => (
             <tr>
-              <th scope="col" class="name-col"></th>
-              <th scope="col">Yes</th>
-              <th scope="col">No</th>
+              <th scope="row" class="name-col">
+                <Candidate person={p} />
+              </th>
+              <td>
+                <Oval
+                  state={retain.get(p.name) === 'yes' ? 'filled' : 'empty'}
+                  label={retain.get(p.name) === 'yes' ? 'Yes, picked' : 'Yes'}
+                />
+              </td>
+              <td>
+                <Oval
+                  state={retain.get(p.name) === 'no' ? 'filled' : 'empty'}
+                  label={retain.get(p.name) === 'no' ? 'No, picked' : 'No'}
+                />
+              </td>
             </tr>
-          </thead>
-          <tbody>
-            {people.map((p) => (
-              <tr>
-                <th scope="row" class="name-col">
-                  <Candidate person={p} />
-                </th>
-                <td>
-                  <Oval state={retain.get(p.name) === 'yes' ? 'filled' : 'empty'} label={retain.get(p.name) === 'yes' ? 'Yes, picked' : 'Yes'} />
-                </td>
-                <td>
-                  <Oval state={retain.get(p.name) === 'no' ? 'filled' : 'empty'} label={retain.get(p.name) === 'no' ? 'No, picked' : 'No'} />
-                </td>
-              </tr>
+          ))}
+        </tbody>
+      </table>
+      {pill && <span class:list={['label', pill.kind]}>{pill.text}</span>}
+    </div>
+  )}
+
+  {grid && (
+    <div class="ballot">
+      <table class="grid">
+        <thead>
+          <tr>
+            <th scope="col" class="name-col"></th>
+            {Array.from({ length: cols }, (_, i) => (
+              <th scope="col">{ordinal(i + 1)}</th>
             ))}
-          </tbody>
-        </table>
-        {pill && <span class:list={['label', pill.kind]}>{pill.text}</span>}
-      </div>
-    )
-  }
-
-  {
-    grid && (
-      <div class="ballot">
-        <table class="grid">
-          <thead>
-            <tr>
-              <th scope="col" class="name-col"></th>
-              {Array.from({ length: cols }, (_, i) => (
-                <th scope="col">{ordinal(i + 1)}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {people.map((p) => {
-              const my = mark.get(p.name) ?? [];
-              const isStruck = struck.has(p.name);
-              return (
-                <tr class:list={{ struck: isStruck }}>
-                  <th scope="row" class="name-col">
-                    <Candidate person={p} struck={isStruck} />
-                    {isStruck && <span class="do-not">Do not rank</span>}
-                  </th>
-                  {Array.from({ length: cols }, (_, i) => {
-                    const m = my.find((x) => x.index === i);
-                    const state = isStruck ? 'struck' : m ? (m.shared ? 'shared' : 'filled') : 'empty';
-                    const label = `${ordinal(i + 1)} choice: ${p.name}` + (m ? (m.shared ? ', either' : ', picked') : '');
-                    return (
-                      <td>
-                        <Oval state={state} label={label} />
-                      </td>
-                    );
-                  })}
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
-        {picks.some((s) => 'any_of' in s) && (
-          <p class="legend">
-            <Oval state="shared" label="mixed" /> Either of these is fine in that spot.
-          </p>
-        )}
-        {pill && <span class:list={['label', pill.kind]}>{pill.text}</span>}
-      </div>
-    )
-  }
-
-  {
-    list && (
-      <div class="ballot">
-        <ul class="list">
+          </tr>
+        </thead>
+        <tbody>
           {people.map((p) => {
             const my = mark.get(p.name) ?? [];
             const isStruck = struck.has(p.name);
-            const state = isStruck ? 'struck' : my.length ? (my[0].shared ? 'shared' : 'filled') : 'empty';
             return (
-              <li class:list={{ struck: isStruck, picked: my.length > 0 }}>
-                <Oval state={state} label={`${p.name}${my.length ? (my[0].shared ? ', either' : ', picked') : ''}`} />
-                <Candidate person={p} struck={isStruck} />
-                {my[0]?.shared && <span class="either">or</span>}
-              </li>
+              <tr class:list={{ struck: isStruck }}>
+                <th scope="row" class="name-col">
+                  <Candidate person={p} struck={isStruck} />
+                  {isStruck && <span class="do-not">Do not rank</span>}
+                </th>
+                {Array.from({ length: cols }, (_, i) => {
+                  const m = my.find((x) => x.index === i);
+                  const state = isStruck ? 'struck' : m ? (m.shared ? 'shared' : 'filled') : 'empty';
+                  const label = `${ordinal(i + 1)} choice: ${p.name}` + (m ? (m.shared ? ', either' : ', picked') : '');
+                  return (
+                    <td>
+                      <Oval state={state} label={label} />
+                    </td>
+                  );
+                })}
+              </tr>
             );
           })}
-        </ul>
-        {pill && <span class:list={['label', pill.kind]}>{pill.text}</span>}
-      </div>
-    )
-  }
+        </tbody>
+      </table>
+      {picks.some((s) => 'any_of' in s) && (
+        <p class="legend">
+          <Oval state="shared" label="mixed" /> Either of these is fine in that spot.
+        </p>
+      )}
+      {pill && <span class:list={['label', pill.kind]}>{pill.text}</span>}
+    </div>
+  )}
 
-  {
-    hasContext && (
-      <dl class="context">
-        {c.summary && (
-          <>
-            <dt>A yes vote</dt>
-            <dd>{c.summary}</dd>
-          </>
-        )}
-        {c.placed_by && (
-          <>
-            <dt>Placed by</dt>
-            <dd>{c.placed_by}</dd>
-          </>
-        )}
-        {c.supporters && (
-          <>
-            <dt>For</dt>
-            <dd>{c.supporters}</dd>
-          </>
-        )}
-        {c.opponents && (
-          <>
-            <dt>Against</dt>
-            <dd>{c.opponents}</dd>
-          </>
-        )}
-      </dl>
-    )
-  }
+  {list && (
+    <div class="ballot">
+      <ul class="list">
+        {people.map((p) => {
+          const my = mark.get(p.name) ?? [];
+          const isStruck = struck.has(p.name);
+          const state = isStruck ? 'struck' : my.length ? (my[0].shared ? 'shared' : 'filled') : 'empty';
+          return (
+            <li class:list={{ struck: isStruck, picked: my.length > 0 }}>
+              <Oval state={state} label={`${p.name}${my.length ? (my[0].shared ? ', either' : ', picked') : ''}`} />
+              <Candidate person={p} struck={isStruck} />
+              {my[0]?.shared && <span class="either">or</span>}
+            </li>
+          );
+        })}
+      </ul>
+      {pill && <span class:list={['label', pill.kind]}>{pill.text}</span>}
+    </div>
+  )}
+
+  {hasContext && (
+    <dl class="context">
+      {c.summary && (
+        <>
+          <dt>A yes vote</dt>
+          <dd>{c.summary}</dd>
+        </>
+      )}
+      {c.placed_by && (
+        <>
+          <dt>Placed by</dt>
+          <dd>{c.placed_by}</dd>
+        </>
+      )}
+      {c.supporters && (
+        <>
+          <dt>For</dt>
+          <dd>{c.supporters}</dd>
+        </>
+      )}
+      {c.opponents && (
+        <>
+          <dt>Against</dt>
+          <dd>{c.opponents}</dd>
+        </>
+      )}
+    </dl>
+  )}
 
   {c.note && <div class="note prose" set:html={md(c.note)} />}
   {c.why && <div class="why prose" set:html={md(c.why)} />}
