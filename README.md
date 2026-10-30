@@ -7,6 +7,15 @@ I have been publishing voting guides for my friends and family for well over a d
 Historically, I have done this as a PDF, and its been pretty labor intensive.
 This year, I decided to create a structured format and site generator that allows me to just fill in the content and update it with time.
 
+## Setup
+
+The Node version is pinned in `mise.toml` with [mise](https://mise.jdx.dev):
+
+```
+mise install
+npm ci
+```
+
 ## Writing a guide
 
 See [FORMAT.md](FORMAT.md).
