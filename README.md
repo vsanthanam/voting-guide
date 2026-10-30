@@ -45,6 +45,8 @@ Hosted on Cloudflare Workers as a static-assets Worker (`wrangler.jsonc`). No se
 
 CI (`.github/workflows/cd.yaml`) runs lint, format, and build checks on every pull request and
 on every push to `main`. Pushes to `main` that pass those checks are deployed automatically.
+The deploy job targets the `production` GitHub environment, so each deploy is recorded under the
+repo's Deployments tab with a link to the live site.
 
 To deploy by hand:
 
