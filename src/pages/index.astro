@@ -13,27 +13,34 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     </div>
   </header>
   <main class="container home">
-    {
-      guides.map((lg) => {
-        const s = stats(lg);
-        const draft = lg.guide.data.status === 'draft';
-        return (
-          <a class="card row" href={`${base}/guides/${lg.guide.id}/`}>
-            <span class="text">
-              <span class="title">{lg.guide.data.election}</span>
-              <span class="date">{formatDate(lg.guide.data.date)}</span>
-              <span class="meta">
-                {s.races} races, {s.measures} measures
-              </span>
+    {guides.map((lg) => {
+      const s = stats(lg);
+      const draft = lg.guide.data.status === 'draft';
+      return (
+        <a class="card row" href={`${base}/guides/${lg.guide.id}/`}>
+          <span class="text">
+            <span class="title">{lg.guide.data.election}</span>
+            <span class="date">{formatDate(lg.guide.data.date)}</span>
+            <span class="meta">
+              {s.races} races, {s.measures} measures
             </span>
-            <span class="status">
-              {draft ? <span class="label draft">In progress</span> : <span class="label yes">Complete</span>}
-            </span>
-            <svg class="chev" width="10" height="16" viewBox="0 0 10 16" aria-hidden="true"><path d="m2 2 6 6-6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" /></svg>
-          </a>
-        );
-      })
-    }
+          </span>
+          <span class="status">
+            {draft ? <span class="label draft">In progress</span> : <span class="label yes">Complete</span>}
+          </span>
+          <svg class="chev" width="10" height="16" viewBox="0 0 10 16" aria-hidden="true">
+            <path
+              d="m2 2 6 6-6 6"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+      );
+    })}
   </main>
 </Base>
 
@@ -51,7 +58,9 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, '');
     margin-top: 0;
     padding: 26px 28px;
     color: var(--text);
-    transition: transform 160ms ease, box-shadow 160ms ease;
+    transition:
+      transform 160ms ease,
+      box-shadow 160ms ease;
   }
   .row:hover {
     text-decoration: none;

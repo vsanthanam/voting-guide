@@ -7,7 +7,9 @@ import { tmpdir } from 'node:os';
 
 const CHROME =
   process.env.CHROME ??
-  ['/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', '/usr/bin/google-chrome', '/usr/bin/chromium'].find(existsSync);
+  ['/Applications/Google Chrome.app/Contents/MacOS/Google Chrome', '/usr/bin/google-chrome', '/usr/bin/chromium'].find(
+    existsSync,
+  );
 if (!CHROME) throw new Error('Chrome not found; set CHROME=/path/to/chrome');
 
 const site = "Varun's Voting Guide";
@@ -18,7 +20,12 @@ for (const dir of readdirSync(guidesDir)) {
   const election = /^election:\s*(.+)$/m.exec(y)?.[1]?.trim();
   const date = /^date:\s*(\d{4}-\d{2}-\d{2})/m.exec(y)?.[1];
   const when = date
-    ? new Date(date + 'T12:00:00Z').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })
+    ? new Date(date + 'T12:00:00Z').toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        timeZone: 'UTC',
+      })
     : '';
   pages.push({ slug: dir, title: election, sub: `${site}  ·  ${when}` });
 }
@@ -41,6 +48,17 @@ mkdirSync('public/og', { recursive: true });
 for (const p of pages) {
   const file = join(tmpdir(), `og-${p.slug}.html`);
   writeFileSync(file, html(p));
-  execFileSync(CHROME, ['--headless=new', '--disable-gpu', '--hide-scrollbars', '--window-size=1200,630', `--screenshot=public/og/${p.slug}.png`, `file://${file}`], { stdio: 'ignore' });
+  execFileSync(
+    CHROME,
+    [
+      '--headless=new',
+      '--disable-gpu',
+      '--hide-scrollbars',
+      '--window-size=1200,630',
+      `--screenshot=public/og/${p.slug}.png`,
+      `file://${file}`,
+    ],
+    { stdio: 'ignore' },
+  );
   console.log(`public/og/${p.slug}.png  ${p.title}`);
 }

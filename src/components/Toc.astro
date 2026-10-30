@@ -8,33 +8,31 @@ interface Props {
 const { jurisdictions, variant = 'sidebar' } = Astro.props;
 ---
 
-{
-  variant === 'sidebar' ? (
-    <nav class="subnav" id="subnav" aria-label="Contents">
-      <label class="search">
-        <svg viewBox="0 0 16 16" aria-hidden="true">
-          <circle cx="6.5" cy="6.5" r="4.5" />
-          <path d="m10 10 4 4" />
-        </svg>
-        <input type="search" class="filter" placeholder="Search" autocomplete="off" aria-label="Search this ballot" />
-      </label>
-      <TocLinks jurisdictions={jurisdictions} />
-    </nav>
-  ) : (
-    <div class="dock glass">
-      <label class="search">
-        <svg viewBox="0 0 16 16" aria-hidden="true">
-          <circle cx="6.5" cy="6.5" r="4.5" />
-          <path d="m10 10 4 4" />
-        </svg>
-        <input type="search" class="filter" placeholder="Search" autocomplete="off" aria-label="Search this ballot" />
-      </label>
-      <details class="contents-pop">
-        <summary>Contents</summary>
-        <nav class="menu" aria-label="Contents">
-          <TocLinks jurisdictions={jurisdictions} />
-        </nav>
-      </details>
-    </div>
-  )
-}
+{variant === 'sidebar' ? (
+  <nav class="subnav" id="subnav" aria-label="Contents">
+    <label class="search">
+      <svg viewBox="0 0 16 16" aria-hidden="true">
+        <circle cx="6.5" cy="6.5" r="4.5" />
+        <path d="m10 10 4 4" />
+      </svg>
+      <input type="search" class="filter" placeholder="Search" autocomplete="off" aria-label="Search this ballot" />
+    </label>
+    <TocLinks jurisdictions={jurisdictions} />
+  </nav>
+) : (
+  <div class="dock glass">
+    <label class="search">
+      <svg viewBox="0 0 16 16" aria-hidden="true">
+        <circle cx="6.5" cy="6.5" r="4.5" />
+        <path d="m10 10 4 4" />
+      </svg>
+      <input type="search" class="filter" placeholder="Search" autocomplete="off" aria-label="Search this ballot" />
+    </label>
+    <details class="contents-pop">
+      <summary>Contents</summary>
+      <nav class="menu" aria-label="Contents">
+        <TocLinks jurisdictions={jurisdictions} />
+      </nav>
+    </details>
+  </div>
+)}
