@@ -2,6 +2,7 @@ name: CD
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened, closed]
   push:
     branches: [main]
   workflow_dispatch:
@@ -13,6 +14,7 @@ concurrency:
 jobs:
   check:
     name: Lint, format, build
+    if: github.event.action != 'closed'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -29,6 +31,56 @@ jobs:
           name: dist
           path: dist/
           if-no-files-found: error
+  preview:
+    name: Deploy PR preview
+    needs: check
+    # Only for PRs from this repo: forks don't get the Cloudflare secrets.
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      deployments: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v7
+      - uses: jdx/mise-action@v5
+        with:
+          cache: true
+      - run: bun install --frozen-lockfile
+      - uses: actions/download-artifact@v8
+        with:
+          name: dist
+          path: dist/
+      - id: preview
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          packageManager: bun
+          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          command: preview --name pr-${{ github.event.pull_request.number }}
+      - run: |
+          gh pr comment "$PR" --edit-last --create-if-none --body "Preview: $URL"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR: ${{ github.event.pull_request.number }}
+          URL: ${{ steps.preview.outputs.preview-url }}
+  preview-cleanup:
+    name: Delete PR preview
+    if: github.event_name == 'pull_request' && github.event.action == 'closed' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: jdx/mise-action@v5
+        with:
+          cache: true
+      - run: bun install --frozen-lockfile
+      - uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          packageManager: bun
+          command: preview delete --name pr-${{ github.event.pull_request.number }} --skip-confirmation
   deploy:
     name: Deploy to Cloudflare Workers
     needs: check

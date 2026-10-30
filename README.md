@@ -48,6 +48,10 @@ on every push to `main`. Pushes to `main` that pass those checks are deployed au
 The deploy job targets the `production` GitHub environment, so each deploy is recorded under the
 repo's Deployments tab with a link to the live site.
 
+Every pull request also gets a [Worker Preview](https://developers.cloudflare.com/workers/previews/)
+at `pr-<number>-voting-guide.<account>.workers.dev`, posted as a comment on the PR and recorded as
+a non-production deployment. The preview is updated on every push and deleted when the PR is closed.
+
 To deploy by hand:
 
 ```

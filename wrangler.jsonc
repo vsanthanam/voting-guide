@@ -3,6 +3,11 @@
   "name": "voting-guide",
   "compatibility_date": "2026-10-01",
   "workers_dev": true,
+  // Lets each pull request get its own workers.dev preview (see .github/workflows/cd.yaml).
+  // `wrangler preview` requires the `previews` block; it is empty because a static site has no
+  // bindings or vars that need preview-specific values. Assets stay top-level.
+  "preview_urls": true,
+  "previews": {},
   // Static site: no Worker script, just the built files served from Cloudflare's edge.
   "assets": {
     "directory": "./dist",
